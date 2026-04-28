@@ -15,7 +15,7 @@
 
 
 void dibujar_tablero(uint8_t mat[FILAS][COLS]);
-void figueras_tetris(uint8_t mat[FILAS][COLS],int mat_coor [PIEZAS][8],int *j,int *nivel);
+void figueras_tetris(uint8_t mat[FILAS][COLS],int mat_coor [PIEZAS][8],int *j,int *nivel); //*j y *nivel no hacen nada momentaneamente
 void figuras_caen (uint8_t mat[FILAS][COLS],int mat_coor [PIEZAS][8],int *j,int *nivel);
 void borrar (uint8_t mat[FILAS][COLS],int mat_coor [PIEZAS][8],int *j,int *nivel);
 
@@ -27,7 +27,7 @@ int main()
         return 1;
     }
 
-    if(gbt_crear_ventana("Tetris UNLaM - Miguel Zarate", TAM_VENTANA_X, TAM_VENTANA_Y, 2) < 0)
+    if(gbt_crear_ventana("Tetris UNLaM - Luminosos", TAM_VENTANA_X, TAM_VENTANA_Y, 2) < 0)
     {
         printf("ERROR AL CREAR LA VENTANA %s", gbt_obtener_log());
         return 1;
