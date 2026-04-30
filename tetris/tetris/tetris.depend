@@ -179,3 +179,67 @@
 	<stdlib.h>
 	<stdint.h>
 
+1777375693 source:c:\users\mzarate\downloads\tetris\tetris\funciones.c
+
+1777474208 source:c:\users\mzarate\downloads\tetris\tetris\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777375751 source:c:\users\mzarate\downloads\tetris\tetris\piezas.c
+
+1777375694 source:c:\users\mzarate\desktop\tetris\funciones.c
+
+1777375752 source:c:\users\mzarate\desktop\tetris\piezas.c
+
+1777554067 source:c:\users\mzarate\desktop\tetris\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777375696 c:\users\mzarate\desktop\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777375696 c:\users\mzarate\desktop\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777375696 c:\users\mzarate\desktop\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777375696 c:\users\mzarate\desktop\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777375696 c:\users\mzarate\desktop\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777375696 c:\users\mzarate\desktop\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+

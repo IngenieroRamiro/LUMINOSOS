@@ -1,0 +1,213 @@
+# depslib dependency file v1.0
+1777328567 source:c:\users\miguel\onedrive\escritorio\proyecto2\funciones.c
+
+1777336086 source:c:\users\miguel\onedrive\escritorio\proyecto2\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777328568 c:\users\miguel\onedrive\escritorio\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777328568 c:\users\miguel\onedrive\escritorio\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\onedrive\escritorio\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\onedrive\escritorio\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777328568 c:\users\miguel\onedrive\escritorio\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\onedrive\escritorio\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777077788 source:c:\users\mzarate\downloads\proyecto2\proyecto2\funciones.c
+
+1777255980 source:c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777077870 c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777077870 c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777077870 c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777077870 c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777077870 c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777077870 c:\users\mzarate\downloads\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777077788 source:c:\users\mzarate\desktop\proyecto2\proyecto2\funciones.c
+
+1777315140 source:c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777077870 c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777077870 c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777077870 c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777077870 c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777077870 c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777077870 c:\users\mzarate\desktop\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777328567 source:c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\funciones.c
+
+1777334626 source:c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777328568 c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777328568 c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777328568 c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\downloads\proyecto2\proyecto2\proyecto2\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777328567 source:c:\users\miguel\onedrive\escritorio\tetris\funciones.c
+
+1777336086 source:c:\users\miguel\onedrive\escritorio\tetris\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777328568 c:\users\miguel\onedrive\escritorio\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777328568 c:\users\miguel\onedrive\escritorio\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\onedrive\escritorio\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\onedrive\escritorio\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777328568 c:\users\miguel\onedrive\escritorio\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777328568 c:\users\miguel\onedrive\escritorio\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777339363 source:c:\users\ramirol\documents\github\luminosos\tetris\funciones.c
+
+1777339364 source:c:\users\ramirol\documents\github\luminosos\tetris\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777339364 c:\users\ramirol\documents\github\luminosos\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777339364 c:\users\ramirol\documents\github\luminosos\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777339364 c:\users\ramirol\documents\github\luminosos\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777339364 c:\users\ramirol\documents\github\luminosos\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777339364 c:\users\ramirol\documents\github\luminosos\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777339364 c:\users\ramirol\documents\github\luminosos\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777375693 source:c:\users\mzarate\downloads\tetris\tetris\funciones.c
+
+1777474208 source:c:\users\mzarate\downloads\tetris\tetris\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1777375695 c:\users\mzarate\downloads\tetris\tetris\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1777375751 source:c:\users\mzarate\downloads\tetris\tetris\piezas.c
+
