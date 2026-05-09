@@ -297,3 +297,57 @@
 1778365531 c:\users\ramirol\documents\github\luminosos\tetris\tablero.h
 	"tipos.h"
 
+1778366492 source:c:\users\alenn\desktop\luminosos\tetris\colision.c
+	"colision.h"
+
+1778366492 c:\users\alenn\desktop\luminosos\tetris\colision.h
+	"tipos.h"
+
+1778366493 c:\users\alenn\desktop\luminosos\tetris\tipos.h
+	<stdint.h>
+
+1778366492 source:c:\users\alenn\desktop\luminosos\tetris\entrada.c
+	"entrada.h"
+
+1778366492 c:\users\alenn\desktop\luminosos\tetris\entrada.h
+
+1778366493 source:c:\users\alenn\desktop\luminosos\tetris\juego.c
+	"juego.h"
+
+1778366493 c:\users\alenn\desktop\luminosos\tetris\juego.h
+
+1778366493 source:c:\users\alenn\desktop\luminosos\tetris\render.c
+	"render.h"
+	"GBT/gbt.h"
+
+1778366493 c:\users\alenn\desktop\luminosos\tetris\render.h
+	"tipos.h"
+
+1778357291 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778357291 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778357291 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778357291 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778357291 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778357291 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1778366493 source:c:\users\alenn\desktop\luminosos\tetris\tablero.c
+	"tablero.h"
+
+1778366493 c:\users\alenn\desktop\luminosos\tetris\tablero.h
+	"tipos.h"
+

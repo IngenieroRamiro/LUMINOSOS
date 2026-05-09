@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <time.h>
+
 #include "GBT/gbt.h"
 
 #include "tipos.h"
-#include "tablero.h"
-#include "piezas.h"
-#include "colision.h"
 #include "render.h"
+#include "tablero.h"
+#include "colision.h"
+#include "piezas.h"
 
 int main()
 {
@@ -20,18 +21,22 @@ int main()
     srand(time(NULL));
 
     uint8_t tablero[FILAS][COLS] = {0};
+
     int juego_corriendo = 1;
+
     int j = 0;
     int nivel = 0;
 
-    int mat_coordenads[PIEZAS][8] = {{0,3,0,4,0,5,0,6},
-                                     {1,4,1,5,1,6,0,6},
-                                     {1,4,1,5,1,6,0,4},
-                                     {1,4,1,5,0,5,0,6},
-                                     {1,5,1,6,0,4,0,5},
-                                     {0,4,0,5,1,4,1,5},
-                                     {1,3,1,4,1,5,0,4}};
-
+    int mat_coordenads[PIEZAS][8] =
+    {
+        {0,3,0,4,0,5,0,6},
+        {1,4,1,5,1,6,0,6},
+        {1,4,1,5,1,6,0,4},
+        {1,4,1,5,0,5,0,6},
+        {1,5,1,6,0,4,0,5},
+        {0,4,0,5,1,4,1,5},
+        {1,3,1,4,1,5,0,4}
+    };
 
     tGBT_Temporizador* reloj_caida = gbt_temporizador_crear(0.8);
 
@@ -39,8 +44,8 @@ int main()
     {
         gbt_procesar_entrada();
 
-        if (gbt_tecla_presionada(GBTK_ESCAPE)) juego_corriendo = 0;
-
+        if (gbt_tecla_presionada(GBTK_ESCAPE))
+            juego_corriendo = 0;
 
         if (gbt_temporizador_consumir(reloj_caida))
         {
@@ -49,7 +54,8 @@ int main()
                 fijar_pieza(tablero, mat_coordenads[PRUEBA]);
 
                 int lineas = eliminar_lineas(tablero);
-                (void)lineas;    // para el puntaje, pendiente
+
+                (void)lineas;
 
                 reiniciar_pieza(mat_coordenads[PRUEBA]);
             }
@@ -104,12 +110,17 @@ int main()
         }
 
         gbt_borrar_backbuffer(0);
+
         dibujar_tablero(tablero);
+
         gbt_volcar_backbuffer();
+
         gbt_esperar(16);
     }
 
     gbt_temporizador_destruir(reloj_caida);
+
     gbt_cerrar();
+
     return 0;
 }

@@ -36,16 +36,34 @@
 			<Add option="-lgbt" />
 			<Add directory="lib/GBT_v2026.1C.01/lib" />
 		</Linker>
-		<Unit filename="../funciones.c">
+		<Unit filename="colision.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../funciones.h" />
-		<Unit filename="../piezas.c">
+		<Unit filename="colision.h" />
+		<Unit filename="entrada.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="entrada.h" />
+		<Unit filename="juego.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="piezas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="piezas.h" />
+		<Unit filename="render.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="render.h" />
+		<Unit filename="tablero.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tablero.h" />
+		<Unit filename="tipos.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
