@@ -16,3 +16,18 @@ int verificar_colision(uint8_t mat[FILAS][COLS], int pieza[8])
 
     return 0;
 }
+
+int fin_juego(uint8_t mat[FILAS][COLS], int pieza[8])
+{
+    int f;
+    int c;
+
+    for(int i=0; i<8 ; i+=2)
+    {
+        f=pieza[i];
+        c=pieza[i+1];
+        if(f>=0 && mat[f][c]==2)
+            return 1;
+    }
+    return 0;
+}

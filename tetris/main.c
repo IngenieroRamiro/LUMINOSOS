@@ -58,6 +58,9 @@ int main()
                 (void)lineas;
 
                 reiniciar_pieza(mat_coordenads[PRUEBA]);
+                if(fin_juego(tablero, mat_coordenads[PRUEBA]))
+                    juego_corriendo = 0;
+
             }
             else
             {
