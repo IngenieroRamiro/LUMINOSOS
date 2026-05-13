@@ -1,3 +1,22 @@
+/*
+
+Apellido, Nombre: Gil, Alen Emmanuel
+DNI: 45073489
+Usuario: AlenEmG
+Entrega: Sí
+
+Apellido, Nombre: Spinetta, Luis Alberto
+DNI: 12345678
+Usuario: LuisAS21
+Entrega: Sí
+
+Apellido, Nombre: Spinetta, Luis Alberto
+DNI: 12345678
+Usuario: LuisAS21
+Entrega: Sí
+
+*/
+
 #include <stdio.h>
 #include <stdint.h>
 #include <time.h>
@@ -9,6 +28,9 @@
 #include "tablero.h"
 #include "colision.h"
 #include "piezas.h"
+#include "dificultad.h"
+
+#define VELOCIDAD_INICIAL 1.0f
 
 int main()
 {
@@ -23,6 +45,8 @@ int main()
     uint8_t tablero[FILAS][COLS] = {0};
 
     int juego_corriendo = 1;
+    int p_caidas = 0;
+    float velocidad_actual = VELOCIDAD_INICIAL;
 
     int j = 0;
     int nivel = 0;
@@ -38,7 +62,7 @@ int main()
         {1,3,1,4,1,5,0,4}
     };
 
-    tGBT_Temporizador* reloj_caida = gbt_temporizador_crear(0.8);
+    tGBT_Temporizador* reloj_caida = gbt_temporizador_crear(velocidad_actual);
 
     while (juego_corriendo)
     {
@@ -52,6 +76,8 @@ int main()
             if (verificar_colision(tablero, mat_coordenads[PRUEBA]))
             {
                 fijar_pieza(tablero, mat_coordenads[PRUEBA]);
+                p_caidas ++;
+                actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida);
 
                 int lineas = eliminar_lineas(tablero);
 

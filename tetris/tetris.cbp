@@ -40,6 +40,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="colision.h" />
+		<Unit filename="dificultad.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dificultad.h" />
 		<Unit filename="entrada.c">
 			<Option compilerVar="CC" />
 		</Unit>
