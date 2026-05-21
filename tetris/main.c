@@ -30,7 +30,7 @@ Entrega: Sí
 #include "piezas.h"
 #include "dificultad.h"
 
-#define VELOCIDAD_INICIAL 1.0f
+#define VELOCIDAD_INICIAL 0.3f
 
 int main()
 {
@@ -48,8 +48,8 @@ int main()
     int p_caidas = 0;
     float velocidad_actual = VELOCIDAD_INICIAL;
 
-    int j = 0;
-    int nivel = 0;
+    int num = rand () % 7;
+    int* figura = &num;
 
     int mat_coordenads[PIEZAS][8] =
     {
@@ -62,7 +62,7 @@ int main()
         {1,3,1,4,1,5,0,4}
     };
 
-    tGBT_Temporizador* reloj_caida = gbt_temporizador_crear(velocidad_actual);
+    tGBT_Temporizador* reloj_caida = gbt_temporizador_crear(velocidad_actual); //PRUEBA
 
     while (juego_corriendo)
     {
@@ -73,9 +73,9 @@ int main()
 
         if (gbt_temporizador_consumir(reloj_caida))
         {
-            if (verificar_colision(tablero, mat_coordenads[PRUEBA]))
+            if (verificar_colision(tablero, mat_coordenads[*figura]))
             {
-                fijar_pieza(tablero, mat_coordenads[PRUEBA]);
+                fijar_pieza(tablero, mat_coordenads[*figura]);
                 p_caidas ++;
                 actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida);
 
@@ -83,60 +83,92 @@ int main()
 
                 (void)lineas;
 
-                reiniciar_pieza(mat_coordenads[PRUEBA]);
-                if(fin_juego(tablero, mat_coordenads[PRUEBA]))
+                reiniciar_pieza(mat_coordenads, *figura);
+                *figura = rand() % 7;
+
+
+                if(fin_juego(tablero, mat_coordenads[*figura]))
                     juego_corriendo = 0;
 
             }
             else
             {
-                borrar(tablero, mat_coordenads, &j, &nivel);
+                borrar(tablero, mat_coordenads[*figura]);
 
-                figueras_tetris(tablero, mat_coordenads, &j, &nivel);
+                figuras_caen(tablero, mat_coordenads[*figura]);
+
             }
+
+
         }
 
-        if (gbt_tecla_presionada(GBTK_w) && PRUEBA != 5)
+        if (gbt_tecla_presionada(GBTK_w) && *figura != 5)
         {
-            borrar(tablero, mat_coordenads, &j, &nivel);
+            borrar(tablero, mat_coordenads[*figura]);
 
             for(int i=0; i<8; i+=2)
-                mat_coordenads[PRUEBA][i]--;
+                mat_coordenads[*figura][i]--;
 
-            rotar_universal(mat_coordenads[PRUEBA], tablero);
+            rotar_universal(mat_coordenads[*figura], tablero);
 
-            figueras_tetris(tablero, mat_coordenads, &j, &nivel);
+            figuras_caen(tablero, mat_coordenads[*figura]);
 
             gbt_esperar(150);
         }
 
         if (gbt_tecla_presionada(GBTK_d))
         {
-            borrar(tablero, mat_coordenads, &j, &nivel);
+            borrar(tablero, mat_coordenads[*figura]);
 
             for(int i=0; i<8; i+=2)
-                mat_coordenads[PRUEBA][i]--;
+                mat_coordenads[*figura][i]--;
 
-            mover_derecha(mat_coordenads[PRUEBA], tablero);
+            mover_derecha(mat_coordenads[*figura], tablero);
 
-            figueras_tetris(tablero, mat_coordenads, &j, &nivel);
+            figuras_caen(tablero, mat_coordenads[*figura]);
 
             gbt_esperar(100);
         }
 
         if (gbt_tecla_presionada(GBTK_a))
         {
-            borrar(tablero, mat_coordenads, &j, &nivel);
+            borrar(tablero, mat_coordenads[*figura]);
 
             for(int i=0; i<8; i+=2)
-                mat_coordenads[PRUEBA][i]--;
+                mat_coordenads[*figura][i]--;
 
-            mover_izquierda(mat_coordenads[PRUEBA], tablero);
+            mover_izquierda(mat_coordenads[*figura], tablero);
 
-            figueras_tetris(tablero, mat_coordenads, &j, &nivel);
+            figuras_caen(tablero, mat_coordenads[*figura]);
 
             gbt_esperar(100);
         }
+
+        if( gbt_tecla_presionada(GBTK_ESPACIO) )
+        {
+            borrar(tablero, mat_coordenads[*figura]);
+
+            while (verificar_colision(tablero, mat_coordenads[*figura]) == 0)
+                for(int i = 0; i < 8; i += 2)
+                    mat_coordenads[*figura][i]++;
+
+
+            fijar_pieza(tablero, mat_coordenads[*figura]);
+            p_caidas++;
+            actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida);
+
+            int lineas = eliminar_lineas(tablero);
+            (void)lineas;
+
+            reiniciar_pieza(mat_coordenads, *figura);
+            *figura = rand() % 7;
+
+            gbt_esperar(180);
+        }
+
+
+
+
 
         gbt_borrar_backbuffer(0);
 

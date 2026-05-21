@@ -1,11 +1,22 @@
 #include "piezas.h"
+#include <stdlib.h>
 
-void reiniciar_pieza(int pieza[8])
+
+void reiniciar_pieza(int mat_coor[PIEZAS][8], int pieza_a_resetear)
 {
-    int iniciales[8] = {0,3,0,4,0,5,0,6};
+    const int plantillas[7][8] =
+    {
+        {0,3,0,4,0,5,0,6}, // I
+        {1,4,1,5,1,6,0,6}, // L
+        {1,4,1,5,1,6,0,4}, // J
+        {1,4,1,5,0,5,0,6}, // S
+        {1,5,1,6,0,4,0,5}, // Z
+        {0,4,0,5,1,4,1,5}, // O
+        {1,3,1,4,1,5,0,4}  // T
+    };
 
-    for(int i=0; i<8; i++)
-        pieza[i] = iniciales[i];
+    for(int i = 0; i < 8; i++)
+        mat_coor[pieza_a_resetear][i] = plantillas[pieza_a_resetear][i];
 }
 
 void rotar_universal(int pieza[8], uint8_t tablero[FILAS][COLS])

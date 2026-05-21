@@ -1,11 +1,13 @@
 #include "tablero.h"
 
-void borrar(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nivel)
+void borrar(uint8_t mat[FILAS][COLS], int mat_coor[])
 {
-    for ((*j) = 0; (*j) < 7; (*j) += 2)
+    int j;
+
+    for (j = 0; j < 7; j += 2)
     {
-        int f = mat_coor[PRUEBA][*j];
-        int c = mat_coor[PRUEBA][*j + 1];
+        int f = mat_coor[j];
+        int c = mat_coor[j + 1];
 
         if (f >= 0 && f < FILAS && mat[f][c] == 1)
         {
@@ -13,30 +15,26 @@ void borrar(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nive
         }
     }
 
-    for ((*j) = 0; (*j) < 7; (*j) += 2)
+    for (j = 0; j < 7; j += 2)
     {
-        mat_coor[PRUEBA][*j] = mat_coor[PRUEBA][*j] + 1;
+        mat_coor[j] = mat_coor[j] + 1;
     }
 }
 
-void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nivel)
+void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[])
 {
-    for ((*j) = 0; (*j) < 7; (*j) = (*j) + 2)
+    int j;
+    for (j = 0; j < 7; j = j + 2)
     {
-        int f = mat_coor[PRUEBA][*j];
+        int f = mat_coor[j];
 
-        int c = mat_coor[PRUEBA][*j + 1];
+        int c = mat_coor[j + 1];
 
         if (f >= 0 && f < FILAS)
         {
             mat[f][c] = 1;
         }
     }
-}
-
-void figueras_tetris(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nivel)
-{
-    figuras_caen(mat, mat_coor, j, nivel);
 }
 
 void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[8])

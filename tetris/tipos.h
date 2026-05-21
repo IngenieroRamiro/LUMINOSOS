@@ -11,6 +11,6 @@
 #define TAM_MINO 12
 
 #define PIEZAS 7
-#define PRUEBA 0
+#define PRUEBA 1
 
 #endif /* TIPOS_H */

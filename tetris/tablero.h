@@ -4,11 +4,9 @@
 #include <stdint.h>
 #include "tipos.h"
 
-void borrar(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nivel);
+void borrar(uint8_t mat[FILAS][COLS], int mat_coor[]);
 
-void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nivel);
-
-void figueras_tetris(uint8_t mat[FILAS][COLS], int mat_coor[PIEZAS][8], int *j, int *nivel);
+void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[]);
 
 void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[8]);
 

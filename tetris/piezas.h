@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "tipos.h"
 
-void reiniciar_pieza(int pieza[8]);
+void reiniciar_pieza(int mat_coor[PIEZAS][8], int pieza_a_resetear);
 
 void rotar_universal(int pieza[8], uint8_t tablero[FILAS][COLS]);
 
