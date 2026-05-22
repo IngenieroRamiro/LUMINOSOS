@@ -29,7 +29,7 @@ int main()
 
         gbt_borrar_backbuffer(0);
 
-        fuente_dibujar_texto(100,100,"abcdefghijk66lmnopqrstuvwxyz",15,&fuente);
+        fuente_dibujar_texto(100,100,"0123456789",15,&fuente);
 
         gbt_volcar_backbuffer();
 
