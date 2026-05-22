@@ -29,6 +29,7 @@ Entrega: Sí
 #include "colision.h"
 #include "piezas.h"
 #include "dificultad.h"
+#include "fuentes.h"
 
 #define VELOCIDAD_INICIAL 0.3f
 

@@ -48,6 +48,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="entrada.h" />
+		<Unit filename="fuentes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fuentes.h" />
 		<Unit filename="juego.c">
 			<Option compilerVar="CC" />
 		</Unit>
