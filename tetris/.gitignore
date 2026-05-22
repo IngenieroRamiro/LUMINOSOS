@@ -1,0 +1,15 @@
+# Carpeta obj completa
+obj/
+
+# Ejecutables
+.exe
+
+# Objetos compilados
+.o
+
+# Archivos temporales CodeBlocks
+.depend
+.layout
+
+# Archivos temporales varios
+.tmp
