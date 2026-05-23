@@ -63,6 +63,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="piezas.h" />
+		<Unit filename="puntuacion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="puntuacion.h" />
+		<Unit filename="records.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="records.h" />
 		<Unit filename="render.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -71,6 +79,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="tablero.h" />
+		<Unit filename="test_puntuacion.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="tipos.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
