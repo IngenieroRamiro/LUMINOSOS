@@ -101,3 +101,14 @@ int eliminar_lineas(uint8_t mat[FILAS][COLS])
 
     return eliminadas;
 }
+
+void Reiniciar_Tablero (uint8_t mat[FILAS][COLS])
+{
+    for (int f = 0; f < FILAS; f++)
+    {
+        for (int c = 0; c < COLS; c++)
+        {
+            mat[f][c] = 0;
+        }
+    }
+}

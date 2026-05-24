@@ -30,6 +30,7 @@ Entrega: Sí
 #include "piezas.h"
 #include "dificultad.h"
 #include "fuentes.h"
+#include "menu.h"
 
 #define VELOCIDAD_INICIAL 0.3f
 
@@ -49,6 +50,9 @@ int main()
     int p_caidas = 0;
     float velocidad_actual = VELOCIDAD_INICIAL;
 
+    tFuente fuente;
+    fuente_inicializar(&fuente);
+
     int num = rand () % 7;
     int* figura = &num;
 
@@ -63,11 +67,29 @@ int main()
         {1,3,1,4,1,5,0,4}
     };
 
+    Pantalla_Inicio (&fuente, &juego_corriendo);
+
     tGBT_Temporizador* reloj_caida = gbt_temporizador_crear(velocidad_actual); //PRUEBA
 
     while (juego_corriendo)
     {
         gbt_procesar_entrada();
+
+        if (gbt_tecla_presionada(GBTK_ESCAPE))
+        {
+            Pausar_Juego (&fuente, &juego_corriendo);
+        }
+
+        if (juego_corriendo == 2)
+        {
+            Pantalla_Inicio (&fuente, &juego_corriendo);
+
+            if(juego_corriendo == 1)
+            {
+                Reiniciar_Tablero (tablero);
+                reiniciar_pieza(mat_coordenads, *figura);
+            }
+        }
 
         if (gbt_tecla_presionada(GBTK_ESCAPE))
             juego_corriendo = 0;

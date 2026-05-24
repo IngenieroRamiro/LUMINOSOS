@@ -12,4 +12,6 @@ void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[8]);
 
 int eliminar_lineas(uint8_t mat[FILAS][COLS]);
 
+void Reiniciar_Tablero (uint8_t mat[FILAS][COLS]);
+
 #endif /* TABLERO_H */
