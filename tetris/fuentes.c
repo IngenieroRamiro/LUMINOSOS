@@ -15,6 +15,19 @@ void fuente_inicializar(tFuente *fuente)
 
     fuente->ancho[' ']=4;
 
+    // Guión
+
+    fuente->pixel['-'][0] = 0b00000000;
+    fuente->pixel['-'][1] = 0b00000000;
+    fuente->pixel['-'][2] = 0b00000000;
+    fuente->pixel['-'][3] = 0b00111100;
+    fuente->pixel['-'][4] = 0b00000000;
+    fuente->pixel['-'][5] = 0b00000000;
+    fuente->pixel['-'][6] = 0b00000000;
+    fuente->pixel['-'][7] = 0b00000000;
+
+    fuente->ancho['-']=8;
+
     // Número 0
 
     fuente->pixel['0'][0] = 0b00111000;
@@ -502,7 +515,16 @@ void fuente_inicializar(tFuente *fuente)
     }
 }
 
-void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, const tFuente *fuente)
+void dibujar_pixel_escala(int x, int y, int escala, uint8_t color)
+{
+    for(int fila = 0; fila < escala; fila++)
+    {
+        for(int col = 0; col < escala; col++)
+            gbt_dibujar_pixel(x + col, y + fila, color);
+    }
+}
+
+void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, int escala, const tFuente *fuente)
 {
     c=toupper(c);
 
@@ -513,21 +535,21 @@ void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, const tFuente 
             uint8_t mascara = 1 << (7 - col);
             if(fuente->pixel[(int)c][fila] & mascara)
             {
-                gbt_dibujar_pixel(x + col, y + fila, color);
+                dibujar_pixel_escala(x + col*escala, y + fila*escala, escala, color);
             }
         }
     }
 }
 
-void fuente_dibujar_texto(int x, int y, const char *texto, uint8_t color, const tFuente *fuente)
+void fuente_dibujar_texto(int x, int y, const char *texto, uint8_t color, int escala, const tFuente *fuente)
 {
     int i = 0;
 
     while (texto[i] != '\0')
     {
-        fuente_dibujar_caracter(x, y, texto[i], color, fuente);
+        fuente_dibujar_caracter(x, y, texto[i], color, escala, fuente);
 
-        x += fuente->ancho[(int)toupper(texto[i])];
+        x += (fuente->ancho[(int)toupper(texto[i])])*escala;
 
         i++;
     }

@@ -36,11 +36,18 @@
 	<stdlib.h>
 	<stdint.h>
 
-1779461853 source:c:\users\alenn\desktop\luminosos\tetris\main.c
+1779744934 source:c:\users\alenn\desktop\luminosos\tetris\main.c
 	<stdio.h>
 	"GBT/gbt.h"
 	"fuentes.h"
 
-1779417151 c:\users\alenn\desktop\luminosos\tetris\fuentes.h
+1779744647 c:\users\alenn\desktop\luminosos\tetris\fuentes.h
 	<stdint.h>
+
+1779744920 source:c:\users\alenn\desktop\luminosos\tetris\fuentes.c
+	<string.h>
+	<stdint.h>
+	<ctype.h>
+	"GBT/gbt.h"
+	"fuentes.h"
 
