@@ -111,8 +111,14 @@ int main()
 
 
                 if(fin_juego(tablero, mat_coordenads[*figura]))
-                    juego_corriendo = 0;
+                {
+                    Reiniciar_Tablero (tablero);
+                    reiniciar_pieza(mat_coordenads, *figura);
+                    Game_over(&fuente, &juego_corriendo);
+                }
 
+                if (juego_corriendo == 2)
+                    Pantalla_Inicio (&fuente, &juego_corriendo);
             }
             else
             {
@@ -121,8 +127,6 @@ int main()
                 figuras_caen(tablero, mat_coordenads[*figura]);
 
             }
-
-
         }
 
         if (gbt_tecla_presionada(GBTK_w) && *figura != 5)

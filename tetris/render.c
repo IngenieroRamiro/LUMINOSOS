@@ -38,7 +38,7 @@ void dibujar_forma(int x, int y, int ancho, int alto)
 
     for (int i = 10; i < ancho - 10; i++)
         for (int j = 10; j < alto - 10; j++)
-            gbt_dibujar_pixel(x + i, y + j, 9);
+            gbt_dibujar_pixel(x + i, y + j, 176);
 
     for (int i = 25; i < ancho - 25; i++)
         for (int j = 25; j < alto - 25; j++)
@@ -63,7 +63,9 @@ void dibujar_fondo(tFuente *fuente)
         y += 80;
     }
 
-    fuente_dibujar_texto(TAM_VENTANA_X/2 - 60, 70, "tetris", 11, 3, fuente);
+    fuente_dibujar_texto(TAM_VENTANA_X/2 - 61, 70, "tetris", 11, 3, fuente);
+
+    ///Paleta de colores
 
     /*for (int g= 0; g<20; g++)
     {
@@ -72,7 +74,115 @@ void dibujar_fondo(tFuente *fuente)
             for (int j = 0; j < 10; j++)
                 gbt_dibujar_pixel(20 + i + g*10, 70 + j, g);
         }
-    }*/
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 85 + j, g+20);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 100 + j, g+40);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 115 + j, g+60);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 130 + j, g+80);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 145 + j, g+100);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 160 + j, g+120);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 175 + j, g+140);
+        }
+    }
+
+    for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 190 + j, g+160);
+        }
+    }
+
+        for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 205 + j, g+180);
+        }
+    }
+
+        for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 220 + j, g+200);
+        }
+    }
+
+        for (int g= 0; g<20; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 235 + j, g+220);
+        }
+    }
+
+        for (int g= 0; g<15; g++)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+                gbt_dibujar_pixel(20 + i + g*10, 250 + j, g+240);
+        }
+    }//*/
 }
 
 /*void dibujar_fondo()
