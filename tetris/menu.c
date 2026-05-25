@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "fuentes.h"
+
+#include "menu.h"
 #include "GBT/gbt.h"
 
 void Pantalla_Inicio (tFuente *fuente, int *juego)
@@ -31,17 +32,24 @@ void Pantalla_Inicio (tFuente *fuente, int *juego)
 
         if(gbt_tecla_presionada(GBTK_ENTER))
         {
-            if(seleccion == 1) *juego = 1; // Modo Normal
-            if(seleccion == 2) *juego = 3; // Modo Deluxe
-            if(seleccion == 3) *juego = 4; // Estadísticas
+            if(seleccion == 1)
+                *juego = 1; // Modo Normal
+            if(seleccion == 2)
+                *juego = 3; // Modo Deluxe
+            if(seleccion == 3)
+                *juego = 4; // Estadísticas
         }
 
 
-        if(gbt_tecla_presionada(GBTK_1)) *juego = 1;
-        if(gbt_tecla_presionada(GBTK_2)) *juego = 3;
-        if(gbt_tecla_presionada(GBTK_3)) *juego = 4;
+        if(gbt_tecla_presionada(GBTK_1))
+            *juego = 1;
+        if(gbt_tecla_presionada(GBTK_2))
+            *juego = 3;
+        if(gbt_tecla_presionada(GBTK_3))
+            *juego = 4;
 
-        if(gbt_tecla_presionada(GBTK_ESCAPE)) *juego = 0;
+        if(gbt_tecla_presionada(GBTK_ESCAPE))
+            *juego = 0;
 
         gbt_borrar_backbuffer(0);
 
@@ -104,6 +112,12 @@ void Pausar_Juego (tFuente *fuente, int *juego)
                 *juego = 2;
             }
         }
+
+        if(gbt_tecla_presionada(GBTK_ESCAPE))
+            {
+                en_pausa = 0;
+                *juego = 2;
+            }
         fuente_dibujar_texto(260, 180, "JUEGO EN PAUSA", 7, fuente); // Blanco (7)
 
 

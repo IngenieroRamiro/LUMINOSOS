@@ -195,6 +195,10 @@ int main()
 
         gbt_borrar_backbuffer(0);
 
+        /*int tab = */dibujar_fondo(&fuente);
+
+        //printf("T: %d",tab);
+
         dibujar_tablero(tablero);
 
         gbt_volcar_backbuffer();
