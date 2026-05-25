@@ -11,7 +11,8 @@ typedef struct
 }tFuente;
 
 void fuente_inicializar(tFuente * fuente);
-void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, const tFuente *fuente);
-void fuente_dibujar_texto(int x, int y, const char *texto, uint8_t color, const tFuente *fuente);
+void dibujar_pixel_escala(int x, int y, int escala, uint8_t color);
+void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, int escala, const tFuente *fuente);
+void fuente_dibujar_texto(int x, int y, const char *texto, uint8_t color, int escala, const tFuente *fuente);
 
 #endif // FUENTES_H_INCLUDED

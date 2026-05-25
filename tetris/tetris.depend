@@ -125,10 +125,10 @@
 
 1779586119 c:\users\miguel\onedrive\escritorio\nueva carpeta (5)\tetris\menu.h
 
-1779465326 source:c:\users\alenn\desktop\luminosos\tetris\dificultad.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\dificultad.c
 	"dificultad.h"
 
-1779465326 c:\users\alenn\desktop\luminosos\tetris\dificultad.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\dificultad.h
 	"GBT/gbt.h"
 
 1776646998 c:\users\alenn\desktop\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
@@ -153,46 +153,46 @@
 	<stdlib.h>
 	<stdint.h>
 
-1779465326 source:c:\users\alenn\desktop\luminosos\tetris\entrada.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\entrada.c
 	"entrada.h"
 
-1779465326 c:\users\alenn\desktop\luminosos\tetris\entrada.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\entrada.h
 
-1779462730 source:c:\users\alenn\desktop\luminosos\tetris\fuentes.c
+1779746013 source:c:\users\alenn\desktop\luminosos\tetris\fuentes.c
 	<string.h>
 	<stdint.h>
 	<ctype.h>
 	"GBT/gbt.h"
 	"fuentes.h"
 
-1779417151 c:\users\alenn\desktop\luminosos\tetris\fuentes.h
+1779746177 c:\users\alenn\desktop\luminosos\tetris\fuentes.h
 	<stdint.h>
 
-1779465326 source:c:\users\alenn\desktop\luminosos\tetris\juego.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\juego.c
 	"juego.h"
 
-1779465326 c:\users\alenn\desktop\luminosos\tetris\juego.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\juego.h
 
 1779741890 source:c:\users\alenn\desktop\luminosos\tetris\render.c
 	"render.h"
 	"GBT/gbt.h"
 
-1779741867 c:\users\alenn\desktop\luminosos\tetris\render.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\render.h
 	<stdint.h>
 	"fuentes.h"
 	"tipos.h"
 
-1779734855 c:\users\alenn\desktop\luminosos\tetris\tipos.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\tipos.h
 	<stdint.h>
 
-1779734855 source:c:\users\alenn\desktop\luminosos\tetris\colision.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\colision.c
 	"colision.h"
 
-1779734855 c:\users\alenn\desktop\luminosos\tetris\colision.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\colision.h
 	<stdint.h>
 	"tipos.h"
 
-1779741804 source:c:\users\alenn\desktop\luminosos\tetris\main.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\main.c
 	<stdio.h>
 	<stdint.h>
 	<time.h>
@@ -206,42 +206,42 @@
 	"fuentes.h"
 	"menu.h"
 
-1779734855 c:\users\alenn\desktop\luminosos\tetris\tablero.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\tablero.h
 	<stdint.h>
 	"tipos.h"
 
-1779734855 c:\users\alenn\desktop\luminosos\tetris\piezas.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\piezas.h
 	<stdint.h>
 	"tipos.h"
 
-1779741973 c:\users\alenn\desktop\luminosos\tetris\menu.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\menu.h
 	"fuentes.h"
 
-1779734855 source:c:\users\alenn\desktop\luminosos\tetris\piezas.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\piezas.c
 	"piezas.h"
 	<stdlib.h>
 
-1779734855 source:c:\users\alenn\desktop\luminosos\tetris\puntuacion.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\puntuacion.c
 	"puntuacion.h"
 	<limits.h>
 
-1779734855 c:\users\alenn\desktop\luminosos\tetris\puntuacion.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\puntuacion.h
 	"tipos.h"
 
-1779734855 source:c:\users\alenn\desktop\luminosos\tetris\records.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\records.c
 	"records.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1779734855 c:\users\alenn\desktop\luminosos\tetris\records.h
+1779745525 c:\users\alenn\desktop\luminosos\tetris\records.h
 	"tipos.h"
 
-1779734855 source:c:\users\alenn\desktop\luminosos\tetris\tablero.c
+1779745525 source:c:\users\alenn\desktop\luminosos\tetris\tablero.c
 	"tablero.h"
 
-1779735814 source:c:\users\alenn\desktop\luminosos\tetris\menu.c
+1779746013 source:c:\users\alenn\desktop\luminosos\tetris\menu.c
 	<stdio.h>
-	"fuentes.h"
+	"menu.h"
 	"GBT/gbt.h"
 

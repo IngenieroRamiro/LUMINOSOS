@@ -63,7 +63,7 @@ void dibujar_fondo(tFuente *fuente)
         y += 80;
     }
 
-    fuente_dibujar_texto(TAM_VENTANA_X/2 - 10, 70, "tetris", 11, fuente);
+    fuente_dibujar_texto(TAM_VENTANA_X/2 - 60, 70, "tetris", 11, 3, fuente);
 
     /*for (int g= 0; g<20; g++)
     {
