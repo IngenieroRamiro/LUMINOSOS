@@ -7,7 +7,7 @@
 #include "puntuacion.h"      /* nuevo */
 
 void dibujar_tablero(uint8_t mat[FILAS][COLS]);
-void dibujar_forma(int x, int y, int ancho, int alto);
+void dibujar_forma(int x, int y, int ancho, int alto, int c1, int c2, int c3);
 void dibujar_fondo(tFuente *fuente);
 void dibujar_hud(const tPuntuacion *p, const tFuente *fuente);   /* nuevo */
 

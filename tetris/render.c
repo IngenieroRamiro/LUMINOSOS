@@ -30,19 +30,19 @@ void dibujar_tablero(uint8_t mat[FILAS][COLS])
     }
 }
 
-void dibujar_forma(int x, int y, int ancho, int alto)
+void dibujar_forma(int x, int y, int ancho, int alto, int c1, int c2, int c3)
 {
     for (int i = 0; i < ancho; i++)
         for (int j = 0; j < alto; j++)
-            gbt_dibujar_pixel(x + i, y + j, 1);
+            gbt_dibujar_pixel(x + i, y + j, c1);
 
-    for (int i = 10; i < ancho - 10; i++)
-        for (int j = 10; j < alto - 10; j++)
-            gbt_dibujar_pixel(x + i, y + j, 176);
+    for (int i = 15; i < ancho - 15; i++)
+        for (int j = 15; j < alto - 15; j++)
+            gbt_dibujar_pixel(x + i, y + j, c2);
 
-    for (int i = 25; i < ancho - 25; i++)
-        for (int j = 25; j < alto - 25; j++)
-            gbt_dibujar_pixel(x + i, y + j, 1);
+    for (int i = 30; i < ancho - 30; i++)
+        for (int j = 30; j < alto - 30; j++)
+            gbt_dibujar_pixel(x + i, y + j, c3);
 }
 
 void dibujar_fondo(tFuente *fuente)
@@ -52,12 +52,20 @@ void dibujar_fondo(tFuente *fuente)
     int y = 0;
     int x = 0;
 
+    /*dibujar_forma(0, 48, inicio_tablero, TAM_VENTANA_Y - 97, 1, 176, 1);
+    dibujar_forma(inicio_tablero + (COLS * TAM_MINO), 48, inicio_tablero, TAM_VENTANA_Y - 97, 1, 176, 1);
+    dibujar_forma(inicio_tablero, 48, (COLS * TAM_MINO), TAM_VENTANA_Y - 97, 1, 176, 1);
+    dibujar_forma(inicio_tablero + (COLS * TAM_MINO) + 15, 100, 115, 140, 176, 1, 1);
+
+    fuente_dibujar_texto(TAM_VENTANA_X/2 - 61, 70, "tetris", 11, 3, fuente);*/
+
+    ///fondo anterior
     for(int f = 0; f < 6; f++)
     {
         x = 0;
         for(int c = 0; c < 8; c++)
         {
-            dibujar_forma(x, y, 80, 80);
+            dibujar_forma(x, y, 80, 80, 199, 176, 127);
             x += 80;
         }
         y += 80;
@@ -67,7 +75,8 @@ void dibujar_fondo(tFuente *fuente)
 
     ///Paleta de colores
 
-    /*for (int g= 0; g<20; g++)
+     /*
+    for (int g= 0; g<20; g++)
     {
         for (int i = 0; i < 10; i++)
         {
@@ -182,7 +191,7 @@ void dibujar_fondo(tFuente *fuente)
             for (int j = 0; j < 10; j++)
                 gbt_dibujar_pixel(20 + i + g*10, 250 + j, g+240);
         }
-    }//*/
+    }*/
 }
 
 /*void dibujar_fondo()
@@ -207,12 +216,6 @@ void dibujar_fondo(tFuente *fuente)
 }*/
 
 /*
-ancho: 260 / 20 = 13
-alto: 480 / 20 = 24
-
-c: 13 * 24
-*/
-/*
  * Dibuja el HUD a la derecha del tablero: puntaje, lineas y nivel.
  * snprintf con buffer chico alcanza: con int de 32 bits el peor caso
  * es "-2147483648" (12 chars incluyendo el '\0').
@@ -221,8 +224,12 @@ void dibujar_hud(const tPuntuacion *p, const tFuente *fuente)
 {
     char buffer[16];
 
-    const int x = 400;
-    const int y_base = 120;
+    const int x = 415;
+    const int y_base = 118;
+
+    int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS * TAM_MINO)/2;
+
+    dibujar_forma(inicio_tablero + (COLS * TAM_MINO) + 15, 95, 115, 140, 176, 127, 127);
 
     fuente_dibujar_texto(x, y_base, "PUNTAJE", 11, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->puntaje);
