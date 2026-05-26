@@ -158,14 +158,14 @@
 
 1779745525 c:\users\alenn\desktop\luminosos\tetris\entrada.h
 
-1779746013 source:c:\users\alenn\desktop\luminosos\tetris\fuentes.c
+1779746775 source:c:\users\alenn\desktop\luminosos\tetris\fuentes.c
 	<string.h>
 	<stdint.h>
 	<ctype.h>
 	"GBT/gbt.h"
 	"fuentes.h"
 
-1779746177 c:\users\alenn\desktop\luminosos\tetris\fuentes.h
+1779746775 c:\users\alenn\desktop\luminosos\tetris\fuentes.h
 	<stdint.h>
 
 1779745525 source:c:\users\alenn\desktop\luminosos\tetris\juego.c
@@ -173,11 +173,11 @@
 
 1779745525 c:\users\alenn\desktop\luminosos\tetris\juego.h
 
-1779741890 source:c:\users\alenn\desktop\luminosos\tetris\render.c
+1779751834 source:c:\users\alenn\desktop\luminosos\tetris\render.c
 	"render.h"
 	"GBT/gbt.h"
 
-1779745525 c:\users\alenn\desktop\luminosos\tetris\render.h
+1779746775 c:\users\alenn\desktop\luminosos\tetris\render.h
 	<stdint.h>
 	"fuentes.h"
 	"tipos.h"
@@ -192,7 +192,7 @@
 	<stdint.h>
 	"tipos.h"
 
-1779745525 source:c:\users\alenn\desktop\luminosos\tetris\main.c
+1779751783 source:c:\users\alenn\desktop\luminosos\tetris\main.c
 	<stdio.h>
 	<stdint.h>
 	<time.h>
@@ -214,7 +214,7 @@
 	<stdint.h>
 	"tipos.h"
 
-1779745525 c:\users\alenn\desktop\luminosos\tetris\menu.h
+1779750523 c:\users\alenn\desktop\luminosos\tetris\menu.h
 	"fuentes.h"
 
 1779745525 source:c:\users\alenn\desktop\luminosos\tetris\piezas.c
@@ -240,9 +240,10 @@
 1779745525 source:c:\users\alenn\desktop\luminosos\tetris\tablero.c
 	"tablero.h"
 
-1779746013 source:c:\users\alenn\desktop\luminosos\tetris\menu.c
+1779750716 source:c:\users\alenn\desktop\luminosos\tetris\menu.c
 	<stdio.h>
 	"menu.h"
+	"render.h"
 	"GBT/gbt.h"
 
 1779550549 source:c:\users\ramirol\documents\github\luminosos\tetris\colision.c
@@ -367,158 +368,67 @@
 1779752301 source:c:\users\ramirol\documents\github\luminosos\tetris\tablero.c
 	"tablero.h"
 
-1779327775 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\colision.c
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\colision.c
 	"colision.h"
 
-1779327775 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\colision.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\colision.h
 	<stdint.h>
 	"tipos.h"
 
-1779581893 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\tipos.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\tipos.h
 	<stdint.h>
 
-1778891850 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\dificultad.c
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\dificultad.c
 	"dificultad.h"
+	"tipos.h"
 
-1778884374 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\dificultad.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\dificultad.h
 	"GBT/gbt.h"
 
-1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
 	"gbt_entrada.h"
 	"gbt_graficos.h"
 	"gbt_logger.h"
 	"gbt_temporizador.h"
 	"gbt_vector.h"
 
-1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
 	<stdint.h>
 
-1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
 	<stdint.h>
 
-1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
 
-1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
 	<stdint.h>
 
-1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
 	<stdlib.h>
 	<stdint.h>
 
-1778884374 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\entrada.c
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\entrada.c
 	"entrada.h"
 
-1778884374 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\entrada.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\entrada.h
 
-1778884374 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\juego.c
-	"juego.h"
-
-1778884374 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\juego.h
-
-1779577896 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\piezas.c
-	"piezas.h"
-	<stdlib.h>
-
-1779327775 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\piezas.h
-	<stdint.h>
-	"tipos.h"
-
-1779327775 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\colision.c
-	"colision.h"
-
-1779327775 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\colision.h
-	<stdint.h>
-	"tipos.h"
-
-1779581893 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\tipos.h
-	<stdint.h>
-
-1778891850 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\dificultad.c
-	"dificultad.h"
-
-1778884374 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\dificultad.h
-	"GBT/gbt.h"
-
-1778884375 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
-	"gbt_entrada.h"
-	"gbt_graficos.h"
-	"gbt_logger.h"
-	"gbt_temporizador.h"
-	"gbt_vector.h"
-
-1778884375 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
-	<stdint.h>
-
-1778884375 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
-	<stdint.h>
-
-1778884375 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
-
-1778884375 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
-	<stdint.h>
-
-1778884375 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
-	<stdlib.h>
-	<stdint.h>
-
-1778884374 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\entrada.c
-	"entrada.h"
-
-1778884374 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\entrada.h
-
-1779763680 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\fuentes.c
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\fuentes.c
 	<string.h>
 	<stdint.h>
 	<ctype.h>
 	"GBT/gbt.h"
 	"fuentes.h"
 
-1779763680 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\fuentes.h
+1779811011 c:\users\ramirol2\documents\github\luminosos\tetris\fuentes.h
 	<stdint.h>
+	"records.h"
 
-1778884374 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\juego.c
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\juego.c
 	"juego.h"
 
-1778884374 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\juego.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\juego.h
 
-1779763680 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\puntuacion.c
-	"puntuacion.h"
-	<limits.h>
-
-1779721091 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\puntuacion.h
-	"tipos.h"
-
-1779721091 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\records.c
-	"records.h"
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
-1779721091 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\records.h
-	"tipos.h"
-
-1779763680 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\render.c
-	"render.h"
-	<stdio.h>
-	"GBT/gbt.h"
-
-1779763680 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\render.h
-	<stdint.h>
-	"fuentes.h"
-	"tipos.h"
-	"puntuacion.h"
-
-1779767552 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\tablero.c
-	"stdio.h"
-	"tablero.h"
-	"tipos.h"
-
-1779767575 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\tablero.h
-	<stdint.h>
-	"tipos.h"
-	"puntuacion.h"
-
-1779768765 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\main.c
+1779811011 source:c:\users\ramirol2\documents\github\luminosos\tetris\main.c
 	<stdio.h>
 	<stdint.h>
 	<time.h>
@@ -532,86 +442,163 @@
 	"fuentes.h"
 	"menu.h"
 	"puntuacion.h"
+	"records.h"
 
-1779765240 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\piezas.h
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\render.h
+	<stdint.h>
+	"fuentes.h"
+	"tipos.h"
+	"puntuacion.h"
+
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\puntuacion.h
+	"tipos.h"
+
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\tablero.h
 	<stdint.h>
 	"tipos.h"
 
-1779768348 c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\menu.h
-	"fuentes.h"
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\piezas.h
+	<stdint.h>
 	"tipos.h"
 
-1779765421 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\piezas.c
+1779811011 c:\users\ramirol2\documents\github\luminosos\tetris\menu.h
+	"fuentes.h"
+
+1779811959 source:c:\users\ramirol2\documents\github\luminosos\tetris\menu.c
+	<stdio.h>
+	<string.h>
+	"menu.h"
+	"render.h"
+	"GBT/gbt.h"
+
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\piezas.c
 	"piezas.h"
 	<stdlib.h>
 
-1779768777 source:c:\users\miguel\onedrive\escritorio\nueva carpeta (6)\tetris\menu.c
-	<stdio.h>
-	"tipos.h"
-	"fuentes.h"
-	"tablero.h"
-	"GBT/gbt.h"
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\puntuacion.c
 	"puntuacion.h"
+	<limits.h>
 
-1779327774 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\colision.c
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\records.c
+	"records.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1779799202 c:\users\ramirol2\documents\github\luminosos\tetris\records.h
+	"tipos.h"
+
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\render.c
+	"render.h"
+	<stdio.h>
+	"GBT/gbt.h"
+
+1779799202 source:c:\users\ramirol2\documents\github\luminosos\tetris\tablero.c
+	"tablero.h"
+
+1779327774 source:c:\users\mzarate\documents\github\luminosos\tetris\colision.c
 	"colision.h"
 
-1779327774 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\colision.h
+1779327774 c:\users\mzarate\documents\github\luminosos\tetris\colision.h
 	<stdint.h>
 	"tipos.h"
 
-1779581892 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\tipos.h
+1779805403 c:\users\mzarate\documents\github\luminosos\tetris\tipos.h
 	<stdint.h>
 
-1778891850 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\dificultad.c
+1779805403 source:c:\users\mzarate\documents\github\luminosos\tetris\dificultad.c
 	"dificultad.h"
+	"tipos.h"
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\dificultad.h
+1779805403 c:\users\mzarate\documents\github\luminosos\tetris\dificultad.h
 	"GBT/gbt.h"
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
 	"gbt_entrada.h"
 	"gbt_graficos.h"
 	"gbt_logger.h"
 	"gbt_temporizador.h"
 	"gbt_vector.h"
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
 	<stdint.h>
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
 	<stdint.h>
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
 	<stdint.h>
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
 	<stdlib.h>
 	<stdint.h>
 
-1778884374 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\entrada.c
+1778884374 source:c:\users\mzarate\documents\github\luminosos\tetris\entrada.c
 	"entrada.h"
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\entrada.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\entrada.h
 
-1779763680 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\fuentes.c
+1779763680 source:c:\users\mzarate\documents\github\luminosos\tetris\fuentes.c
 	<string.h>
 	<stdint.h>
 	<ctype.h>
 	"GBT/gbt.h"
 	"fuentes.h"
 
-1779763680 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\fuentes.h
+1779812697 c:\users\mzarate\documents\github\luminosos\tetris\fuentes.h
 	<stdint.h>
+	"records.h"
 
-1778884374 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\juego.c
+1779721090 c:\users\mzarate\documents\github\luminosos\tetris\records.h
+	"tipos.h"
+
+1778884374 source:c:\users\mzarate\documents\github\luminosos\tetris\juego.c
 	"juego.h"
 
-1778884374 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\juego.h
+1778884374 c:\users\mzarate\documents\github\luminosos\tetris\juego.h
 
-1779799019 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\main.c
+1779805403 source:c:\users\mzarate\documents\github\luminosos\tetris\piezas.c
+	"piezas.h"
+	<stdlib.h>
+
+1779805403 c:\users\mzarate\documents\github\luminosos\tetris\piezas.h
+	<stdint.h>
+	"tipos.h"
+
+1779763680 source:c:\users\mzarate\documents\github\luminosos\tetris\puntuacion.c
+	"puntuacion.h"
+	<limits.h>
+
+1779721090 c:\users\mzarate\documents\github\luminosos\tetris\puntuacion.h
+	"tipos.h"
+
+1779721090 source:c:\users\mzarate\documents\github\luminosos\tetris\records.c
+	"records.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1779805403 source:c:\users\mzarate\documents\github\luminosos\tetris\render.c
+	"render.h"
+	<stdio.h>
+	"GBT/gbt.h"
+
+1779805403 c:\users\mzarate\documents\github\luminosos\tetris\render.h
+	<stdint.h>
+	"fuentes.h"
+	"tipos.h"
+	"puntuacion.h"
+
+1779805403 source:c:\users\mzarate\documents\github\luminosos\tetris\tablero.c
+	"tablero.h"
+
+1779805403 c:\users\mzarate\documents\github\luminosos\tetris\tablero.h
+	<stdint.h>
+	"tipos.h"
+
+1779812697 source:c:\users\mzarate\documents\github\luminosos\tetris\main.c
 	<stdio.h>
 	<stdint.h>
 	<time.h>
@@ -625,61 +612,271 @@
 	"fuentes.h"
 	"menu.h"
 	"puntuacion.h"
+	"records.h"
 
-1779763680 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\render.h
-	<stdint.h>
+1779812697 c:\users\mzarate\documents\github\luminosos\tetris\menu.h
 	"fuentes.h"
-	"tipos.h"
-	"puntuacion.h"
 
-1779721090 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\puntuacion.h
-	"tipos.h"
-
-1779767574 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\tablero.h
-	<stdint.h>
-	"tipos.h"
-	"puntuacion.h"
-
-1779798688 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\piezas.h
-	<stdint.h>
-	"tipos.h"
-
-1779768348 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\menu.h
-	"fuentes.h"
-	"tipos.h"
-
-1779799019 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\menu.c
+1779812697 source:c:\users\mzarate\documents\github\luminosos\tetris\menu.c
 	<stdio.h>
-	"tipos.h"
-	"fuentes.h"
-	"tablero.h"
+	<string.h>
+	"menu.h"
+	"render.h"
 	"GBT/gbt.h"
+
+1779805403 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\dificultad.c
+	"dificultad.h"
+	"tipos.h"
+
+1779805403 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\dificultad.h
+	"GBT/gbt.h"
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1779805403 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\tipos.h
+	<stdint.h>
+
+1778884374 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\entrada.c
+	"entrada.h"
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\entrada.h
+
+1779763680 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\fuentes.c
+	<string.h>
+	<stdint.h>
+	<ctype.h>
+	"GBT/gbt.h"
+	"fuentes.h"
+
+1779812697 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\fuentes.h
+	<stdint.h>
+	"records.h"
+
+1779721090 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\records.h
+	"tipos.h"
+
+1778884374 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\juego.c
+	"juego.h"
+
+1778884374 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\juego.h
+
+1779812697 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\menu.c
+	<stdio.h>
+	<string.h>
+	"menu.h"
+	"render.h"
+	"GBT/gbt.h"
+
+1779812697 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\menu.h
+	"fuentes.h"
+
+1779805403 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\render.h
+	<stdint.h>
+	"fuentes.h"
+	"tipos.h"
 	"puntuacion.h"
 
-1779799019 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\piezas.c
-	"piezas.h"
-	<stdlib.h>
+1779721090 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\puntuacion.h
+	"tipos.h"
 
-1779763680 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\puntuacion.c
+1779763680 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\puntuacion.c
 	"puntuacion.h"
 	<limits.h>
 
-1779721090 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\records.c
+1779721090 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\records.c
 	"records.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1779721090 c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\records.h
-	"tipos.h"
-
-1779763680 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\render.c
+1779805403 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\render.c
 	"render.h"
 	<stdio.h>
 	"GBT/gbt.h"
 
-1779799019 source:c:\users\mzarate\desktop\nueva carpeta (8)\tetris (2)\tetris\tablero.c
-	"stdio.h"
-	"tablero.h"
+1779814474 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\colision.c
+	"colision.h"
+
+1779814474 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\colision.h
+	<stdint.h>
 	"tipos.h"
+
+1779814474 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\piezas.c
+	"piezas.h"
+	<stdlib.h>
+
+1779814474 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\piezas.h
+	<stdint.h>
+	"tipos.h"
+
+1779814474 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+	"tipos.h"
+	"render.h"
+	"tablero.h"
+	"colision.h"
+	"piezas.h"
+	"dificultad.h"
+	"fuentes.h"
+	"menu.h"
+	"puntuacion.h"
+	"records.h"
+
+1779814646 c:\users\mzarate\desktop\nueva carpeta (10)\tetris\tablero.h
+	<stdint.h>
+	"tipos.h"
+
+1779814601 source:c:\users\mzarate\desktop\nueva carpeta (10)\tetris\tablero.c
+	"tablero.h"
+
+1779814476 source:c:\users\mzarate\desktop\tetris (3)\tetris\colision.c
+	"colision.h"
+
+1779814476 c:\users\mzarate\desktop\tetris (3)\tetris\colision.h
+	<stdint.h>
+	"tipos.h"
+
+1779805404 c:\users\mzarate\desktop\tetris (3)\tetris\tipos.h
+	<stdint.h>
+
+1779805404 source:c:\users\mzarate\desktop\tetris (3)\tetris\dificultad.c
+	"dificultad.h"
+	"tipos.h"
+
+1779805404 c:\users\mzarate\desktop\tetris (3)\tetris\dificultad.h
+	"GBT/gbt.h"
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1778884374 source:c:\users\mzarate\desktop\tetris (3)\tetris\entrada.c
+	"entrada.h"
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\entrada.h
+
+1779763680 source:c:\users\mzarate\desktop\tetris (3)\tetris\fuentes.c
+	<string.h>
+	<stdint.h>
+	<ctype.h>
+	"GBT/gbt.h"
+	"fuentes.h"
+
+1779812698 c:\users\mzarate\desktop\tetris (3)\tetris\fuentes.h
+	<stdint.h>
+	"records.h"
+
+1779817465 c:\users\mzarate\desktop\tetris (3)\tetris\records.h
+	"tipos.h"
+
+1778884374 source:c:\users\mzarate\desktop\tetris (3)\tetris\juego.c
+	"juego.h"
+
+1778884374 c:\users\mzarate\desktop\tetris (3)\tetris\juego.h
+
+1779817465 source:c:\users\mzarate\desktop\tetris (3)\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+	"tipos.h"
+	"render.h"
+	"tablero.h"
+	"colision.h"
+	"piezas.h"
+	"dificultad.h"
+	"fuentes.h"
+	"menu.h"
+	"puntuacion.h"
+	"records.h"
+
+1779805404 c:\users\mzarate\desktop\tetris (3)\tetris\render.h
+	<stdint.h>
+	"fuentes.h"
+	"tipos.h"
+	"puntuacion.h"
+
+1779817465 c:\users\mzarate\desktop\tetris (3)\tetris\puntuacion.h
+	"tipos.h"
+
+1779814648 c:\users\mzarate\desktop\tetris (3)\tetris\tablero.h
+	<stdint.h>
+	"tipos.h"
+
+1779814476 c:\users\mzarate\desktop\tetris (3)\tetris\piezas.h
+	<stdint.h>
+	"tipos.h"
+
+1779812698 c:\users\mzarate\desktop\tetris (3)\tetris\menu.h
+	"fuentes.h"
+
+1779817465 source:c:\users\mzarate\desktop\tetris (3)\tetris\menu.c
+	<stdio.h>
+	<string.h>
+	"menu.h"
+	"render.h"
+	"GBT/gbt.h"
+
+1779817465 source:c:\users\mzarate\desktop\tetris (3)\tetris\piezas.c
+	"piezas.h"
+	<stdlib.h>
+
+1779817465 source:c:\users\mzarate\desktop\tetris (3)\tetris\puntuacion.c
+	"puntuacion.h"
+	<limits.h>
+
+1779817465 source:c:\users\mzarate\desktop\tetris (3)\tetris\records.c
+	"records.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1779805404 source:c:\users\mzarate\desktop\tetris (3)\tetris\render.c
+	"render.h"
+	<stdio.h>
+	"GBT/gbt.h"
+
+1779817465 source:c:\users\mzarate\desktop\tetris (3)\tetris\tablero.c
+	"tablero.h"
 

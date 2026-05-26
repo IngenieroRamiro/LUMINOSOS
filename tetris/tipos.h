@@ -13,4 +13,9 @@
 #define PIEZAS 7
 #define PRUEBA 1
 
+#define PIEZAS_AUMENTAR 3
+#define VELOCIDAD_AUMENTAR 0.1f
+#define MAX_VELOCIDAD 0.7
+#define VELOCIDAD_INICIAL 0.3f
+
 #endif /* TIPOS_H */

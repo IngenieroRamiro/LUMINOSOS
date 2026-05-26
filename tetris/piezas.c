@@ -19,6 +19,31 @@ void reiniciar_pieza(int mat_coor[PIEZAS][8], int pieza_a_resetear)
         mat_coor[pieza_a_resetear][i] = plantillas[pieza_a_resetear][i];
 }
 
+void reiniciar_pieza_10(int mat_coordenads[11][10], int figura)
+{
+    int moldes[11][10] =
+    {
+        // Clásicas
+        {0,3, 0,4, 0,5, 0,6,  0,0}, // I
+        {1,4, 1,5, 1,6, 0,6,  0,0}, // J
+        {1,4, 1,5, 1,6, 0,4,  0,0}, // L
+        {1,4, 1,5, 0,5, 0,6,  0,0}, // O
+        {1,5, 1,6, 0,4, 0,5,  0,0}, // S
+        {0,4, 0,5, 1,4, 1,5,  0,0}, // Z
+        {1,3, 1,4, 1,5, 0,4,  0,0}, // T
+        // Deluxe
+        {0,5, 0,5, 0,5, 0,5,  0,5}, // 7) Monomino
+        {0,4, 0,5, 1,4, 2,4,  2,5}, // 8) Forma de C
+        {0,4, 0,5, 1,4, 1,5,  2,4}, // 9) Forma de P
+        {0,4, 0,6, 1,4, 1,6,  2,5}  // 10) Forma de U
+    };
+
+    for (int i = 0; i < 10; i++)
+    {
+        mat_coordenads[figura][i] = moldes[figura][i];
+    }
+}
+
 void rotar_universal(int pieza[8], uint8_t tablero[FILAS][COLS])
 {
     int f_pivote = pieza[2], c_pivote = pieza[3], aux[8], posible = 1;
@@ -93,16 +118,16 @@ void mover_izquierda(int pieza[8], uint8_t tablero[FILAS][COLS])
     }
 }
 
-void rotar_deluxe(int coords[8], uint8_t tablero[FILAS][COLS])
+void rotar_deluxe(int coords[10], uint8_t tablero[FILAS][COLS])
 {
     int f_pivote = coords[2];
     int c_pivote = coords[3];
-    int coords_nuevas[8];
+    int coords_nuevas[10];
     int puede_rotar = 1;
 
-    for (int i = 0; i < 8; i += 2)
+    for (int i = 0; i < 10; i += 2)
     {
-        int f_actual = coords[i] - 1;
+        int f_actual = coords[i];
         int c_actual = coords[i + 1];
 
         if (c_actual - c_pivote > COLS / 2)
@@ -127,7 +152,7 @@ void rotar_deluxe(int coords[8], uint8_t tablero[FILAS][COLS])
         coords_nuevas[i + 1] = c_nueva;
     }
 
-    for (int i = 0; i < 8; i += 2)
+    for (int i = 0; i < 10; i += 2)
     {
         int f = coords_nuevas[i];
         int c = coords_nuevas[i + 1];
@@ -135,12 +160,13 @@ void rotar_deluxe(int coords[8], uint8_t tablero[FILAS][COLS])
         if (f < 0 || f >= FILAS || tablero[f][c] != 0)
         {
             puede_rotar = 0;
+            break;
         }
     }
 
     if (puede_rotar)
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 10; i++)
         {
             coords[i] = coords_nuevas[i];
         }

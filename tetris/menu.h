@@ -2,11 +2,10 @@
 #define MENU_H_INCLUDED
 
 #include "fuentes.h"
-#include "tipos.h"
 
-
-void Pantalla_Inicio(tFuente *fuente, int *juego, uint8_t mat[FILAS][COLS], int coords_pieza[8], int *figura_tipo, int *p_caidas, float *vel_actual, int *modo_deluxe, tPuntuacion *puntuacion);
-void Guardar_Partida_Archivo(uint8_t mat[FILAS][COLS], int coords_pieza[8], int figura_tipo, int p_caidas, float vel_actual, tPuntuacion *puntuacion, int modo_deluxe);
-void Pausar_Juego (tFuente *fuente, int *juego, uint8_t mat[FILAS][COLS], int coords_pieza[8], int figura_tipo, int p_caidas, float vel_actual, tPuntuacion *puntuacion, int modo_deluxe);
-
+void Pantalla_Inicio (tFuente *fuente,int *juego);
+void Pausar_Juego (tFuente *fuente, int *juego);
+void Game_over(tFuente *fuente, int *juego);
+void Pantalla_Ingresar_Nombre(tFuente *fuente, char *destino, int max_chars);
+void Pantalla_Records(tFuente *fuente, const tRecords *records);
 #endif // MENU_H_INCLUDED

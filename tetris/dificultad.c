@@ -1,12 +1,10 @@
 #include "dificultad.h"
+#include "tipos.h"
 
-#define PIEZAS_AUMENTAR 3
-#define VELOCIDAD_AUMENTAR 0.1f
-#define MAX_VELOCIDAD 0.7
 
-void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizador **reloj_caida)
+void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizador **reloj_caida, int pierde)
 {
-    if(p_caidas % PIEZAS_AUMENTAR == 0)
+    if((p_caidas % PIEZAS_AUMENTAR == 0) && !pierde)
     {
         if(*velocidad_actual > MAX_VELOCIDAD)
         {
@@ -16,5 +14,11 @@ void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizad
             gbt_temporizador_destruir(*reloj_caida);
             *reloj_caida = gbt_temporizador_crear(*velocidad_actual);
         }
+    }
+    if(pierde)
+    {
+        *velocidad_actual = VELOCIDAD_INICIAL;
+        gbt_temporizador_destruir(*reloj_caida);
+        *reloj_caida = gbt_temporizador_crear(*velocidad_actual);
     }
 }

@@ -3,11 +3,6 @@
 
 #define LINEAS_POR_NIVEL 10
 
-/*
- * Devuelve los puntos base del scoring NES segun cuantas lineas
- * se eliminaron a la vez. Solo acepta 1..4; el default 0 es una
- * red de seguridad por si llega un valor invalido.
- */
 static int puntos_base_nes(int cant_lineas)
 {
     switch (cant_lineas)
@@ -20,10 +15,6 @@ static int puntos_base_nes(int cant_lineas)
     }
 }
 
-/*
- * Suma a y b saturando en INT_MAX. Evita UB por overflow signed,
- * que con -Wall -Wextra -pedantic seria un dolor de cabeza.
- */
 static int sumar_saturado(int a, int b)
 {
     if (b > 0 && a > INT_MAX - b)
@@ -45,7 +36,6 @@ void puntuacion_sumar_lineas(tPuntuacion *p, int cant_lineas)
     if (cant_lineas < 1 || cant_lineas > 4)
         return;
 
-    /* El multiplicador usa el nivel ANTES de actualizar las lineas. */
     incremento = puntos_base_nes(cant_lineas) * (p->nivel + 1);
     p->puntaje = sumar_saturado(p->puntaje, incremento);
 

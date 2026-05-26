@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+#include "records.h"
 typedef struct
 {
     uint8_t pixel[128][8];
