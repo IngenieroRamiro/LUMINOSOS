@@ -32,7 +32,9 @@ Entrega: Sí
 #include "fuentes.h"
 #include "menu.h"
 #include "puntuacion.h"
+#include "records.h"
 
+#define RUTA_RECORDS "records.dat"
 
 int main()
 {
@@ -56,6 +58,8 @@ int main()
     tPuntuacion puntuacion;
     puntuacion_iniciar(&puntuacion);
 
+    tRecords records;
+    records_cargar(&records, RUTA_RECORDS);
 
     int figura = rand () % 7;
     //int* figura = &num;
@@ -95,6 +99,11 @@ int main()
                 puntuacion_iniciar(&puntuacion);
             }
         }
+        if (juego_corriendo == 4)
+        {
+            Pantalla_Records(&fuente, &records);
+            juego_corriendo = 2;
+        }
 
         if (gbt_tecla_presionada(GBTK_ESCAPE))
             juego_corriendo = 0;
@@ -117,6 +126,16 @@ int main()
 
                 if(fin_juego(tablero, mat_coordenads[figura]))
                 {
+                    if (records_es_top(&records, puntuacion.puntaje))
+                    {
+                        tRecord nuevo;
+                        Pantalla_Ingresar_Nombre(&fuente, nuevo.nombre, MAX_NOMBRE);
+                        nuevo.puntaje = puntuacion.puntaje;
+                        nuevo.lineas  = puntuacion.lineas;
+                        nuevo.nivel   = puntuacion.nivel;
+                        records_agregar(&records, &nuevo);
+                        records_guardar(&records, RUTA_RECORDS);
+                    }
                     Reiniciar_Tablero (tablero);
                     reiniciar_pieza(mat_coordenads, figura);
                     Game_over(&fuente, &juego_corriendo);
