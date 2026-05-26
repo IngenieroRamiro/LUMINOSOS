@@ -31,6 +31,7 @@ Entrega: Sí
 #include "dificultad.h"
 #include "fuentes.h"
 #include "menu.h"
+#include "puntuacion.h"
 
 #define VELOCIDAD_INICIAL 0.3f
 
@@ -52,6 +53,10 @@ int main()
 
     tFuente fuente;
     fuente_inicializar(&fuente);
+
+    tPuntuacion puntuacion;
+    puntuacion_iniciar(&puntuacion);
+
 
     int num = rand () % 7;
     int* figura = &num;
@@ -88,6 +93,7 @@ int main()
             {
                 Reiniciar_Tablero (tablero);
                 reiniciar_pieza(mat_coordenads, *figura);
+                puntuacion_iniciar;
             }
         }
 
@@ -103,8 +109,9 @@ int main()
                 actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida);
 
                 int lineas = eliminar_lineas(tablero);
+                if (lineas > 0)
 
-                (void)lineas;
+                    puntuacion_sumar_lineas(&puntuacion, lineas);
 
                 reiniciar_pieza(mat_coordenads, *figura);
                 *figura = rand() % 7;
@@ -181,7 +188,9 @@ int main()
             actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida);
 
             int lineas = eliminar_lineas(tablero);
-            (void)lineas;
+
+            if (lineas > 0)
+                puntuacion_sumar_lineas(&puntuacion, lineas);
 
             reiniciar_pieza(mat_coordenads, *figura);
             *figura = rand() % 7;
@@ -200,7 +209,7 @@ int main()
         //printf("T: %d",tab);
 
         dibujar_tablero(tablero);
-
+        dibujar_hud(&puntuacion, &fuente);
         gbt_volcar_backbuffer();
 
         gbt_esperar(16);
