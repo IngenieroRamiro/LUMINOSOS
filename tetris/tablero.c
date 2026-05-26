@@ -1,4 +1,6 @@
+#include "stdio.h"
 #include "tablero.h"
+#include "tipos.h"
 
 void borrar(uint8_t mat[FILAS][COLS], int mat_coor[])
 {
@@ -100,4 +102,36 @@ int eliminar_lineas(uint8_t mat[FILAS][COLS])
     }
 
     return eliminadas;
+}
+
+void Reiniciar_Tablero (uint8_t mat[FILAS][COLS])
+{
+    for (int f = 0; f < FILAS; f++)
+    {
+        for (int c = 0; c < COLS; c++)
+        {
+            mat[f][c] = 0;
+        }
+    }
+}
+
+int Cargar_Partida_Archivo(uint8_t mat[FILAS][COLS], int coords_pieza[8], int *figura_tipo, int *p_caidas, float *vel_actual, tPuntuacion *puntuacion, int *modo_deluxe)
+{
+    FILE *arch = fopen("partida.sav", "rb");
+    if (arch == NULL) return 0;
+
+    fread(mat, sizeof(uint8_t), FILAS * COLS, arch);
+
+    fread(coords_pieza, sizeof(int), 8, arch);
+
+    fread(figura_tipo, sizeof(int), 1, arch);
+    fread(p_caidas, sizeof(int), 1, arch);
+    fread(vel_actual, sizeof(float), 1, arch);
+
+    fread(puntuacion, sizeof(tPuntuacion), 1, arch);
+
+    fread(modo_deluxe, sizeof(int), 1, arch);
+
+    fclose(arch);
+    return 1; // Éxito
 }

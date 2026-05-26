@@ -59,10 +59,22 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
 		<Unit filename="piezas.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="piezas.h" />
+		<Unit filename="puntuacion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="puntuacion.h" />
+		<Unit filename="records.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="records.h" />
 		<Unit filename="render.c">
 			<Option compilerVar="CC" />
 		</Unit>

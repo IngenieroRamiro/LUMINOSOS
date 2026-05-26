@@ -92,3 +92,57 @@ void mover_izquierda(int pieza[8], uint8_t tablero[FILAS][COLS])
             pieza[i]--;
     }
 }
+
+void rotar_deluxe(int coords[8], uint8_t tablero[FILAS][COLS])
+{
+    int f_pivote = coords[2];
+    int c_pivote = coords[3];
+    int coords_nuevas[8];
+    int puede_rotar = 1;
+
+    for (int i = 0; i < 8; i += 2)
+    {
+        int f_actual = coords[i] - 1;
+        int c_actual = coords[i + 1];
+
+        if (c_actual - c_pivote > COLS / 2)
+        {
+            c_actual -= COLS;
+        }
+        else if (c_pivote - c_actual > COLS / 2)
+        {
+            c_actual += COLS;
+        }
+
+        int f_nueva = f_pivote + (c_actual - c_pivote);
+        int c_nueva = c_pivote - (f_actual - f_pivote);
+
+        if (c_nueva < 0)
+        {
+            c_nueva = (c_nueva % COLS) + COLS;
+        }
+        c_nueva %= COLS;
+
+        coords_nuevas[i] = f_nueva;
+        coords_nuevas[i + 1] = c_nueva;
+    }
+
+    for (int i = 0; i < 8; i += 2)
+    {
+        int f = coords_nuevas[i];
+        int c = coords_nuevas[i + 1];
+
+        if (f < 0 || f >= FILAS || tablero[f][c] != 0)
+        {
+            puede_rotar = 0;
+        }
+    }
+
+    if (puede_rotar)
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            coords[i] = coords_nuevas[i];
+        }
+    }
+}

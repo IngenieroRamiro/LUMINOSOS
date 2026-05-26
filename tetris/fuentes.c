@@ -15,6 +15,149 @@ void fuente_inicializar(tFuente *fuente)
 
     fuente->ancho[' ']=4;
 
+    // Guión
+
+    fuente->pixel['-'][0] = 0b00000000;
+    fuente->pixel['-'][1] = 0b00000000;
+    fuente->pixel['-'][2] = 0b00000000;
+    fuente->pixel['-'][3] = 0b00111100;
+    fuente->pixel['-'][4] = 0b00000000;
+    fuente->pixel['-'][5] = 0b00000000;
+    fuente->pixel['-'][6] = 0b00000000;
+    fuente->pixel['-'][7] = 0b00000000;
+
+    fuente->ancho['-']=8;
+
+    // Número 0
+
+    fuente->pixel['0'][0] = 0b00111000;
+    fuente->pixel['0'][1] = 0b01000100;
+    fuente->pixel['0'][2] = 0b01001100;
+    fuente->pixel['0'][3] = 0b01010100;
+    fuente->pixel['0'][4] = 0b01100100;
+    fuente->pixel['0'][5] = 0b01000100;
+    fuente->pixel['0'][6] = 0b00111000;
+    fuente->pixel['0'][7] = 0b00000000;
+
+    fuente->ancho['0']=7;
+
+    // Número 1
+
+    fuente->pixel['1'][0] = 0b00010000;
+    fuente->pixel['1'][1] = 0b00110000;
+    fuente->pixel['1'][2] = 0b01010000;
+    fuente->pixel['1'][3] = 0b00010000;
+    fuente->pixel['1'][4] = 0b00010000;
+    fuente->pixel['1'][5] = 0b00010000;
+    fuente->pixel['1'][6] = 0b00010000;
+    fuente->pixel['1'][7] = 0b00000000;
+
+    fuente->ancho['1']=7;
+
+    // Número 2
+
+    fuente->pixel['2'][0] = 0b00111000;
+    fuente->pixel['2'][1] = 0b01000100;
+    fuente->pixel['2'][2] = 0b00000100;
+    fuente->pixel['2'][3] = 0b00011000;
+    fuente->pixel['2'][4] = 0b00100000;
+    fuente->pixel['2'][5] = 0b01000000;
+    fuente->pixel['2'][6] = 0b01111100;
+    fuente->pixel['2'][7] = 0b00000000;
+
+    fuente->ancho['2']=7;
+
+    // Número 3
+
+    fuente->pixel['3'][0] = 0b00111000;
+    fuente->pixel['3'][1] = 0b01000100;
+    fuente->pixel['3'][2] = 0b00000100;
+    fuente->pixel['3'][3] = 0b00011000;
+    fuente->pixel['3'][4] = 0b00000100;
+    fuente->pixel['3'][5] = 0b01000100;
+    fuente->pixel['3'][6] = 0b00111000;
+    fuente->pixel['3'][7] = 0b00000000;
+
+    fuente->ancho['3']=7;
+
+    // Número 4
+
+    fuente->pixel['4'][0] = 0b00001000;
+    fuente->pixel['4'][1] = 0b00011000;
+    fuente->pixel['4'][2] = 0b00101000;
+    fuente->pixel['4'][3] = 0b01001000;
+    fuente->pixel['4'][4] = 0b01111100;
+    fuente->pixel['4'][5] = 0b00001000;
+    fuente->pixel['4'][6] = 0b00001000;
+    fuente->pixel['4'][7] = 0b00000000;
+
+    fuente->ancho['4']=7;
+
+    // Número 5
+
+    fuente->pixel['5'][0] = 0b01111100;
+    fuente->pixel['5'][1] = 0b01000000;
+    fuente->pixel['5'][2] = 0b01111000;
+    fuente->pixel['5'][3] = 0b00000100;
+    fuente->pixel['5'][4] = 0b00000100;
+    fuente->pixel['5'][5] = 0b01000100;
+    fuente->pixel['5'][6] = 0b00111000;
+    fuente->pixel['5'][7] = 0b00000000;
+
+    fuente->ancho['5']=7;
+
+    // Número 6
+
+    fuente->pixel['6'][0] = 0b00111000;
+    fuente->pixel['6'][1] = 0b01000000;
+    fuente->pixel['6'][2] = 0b01111000;
+    fuente->pixel['6'][3] = 0b01000100;
+    fuente->pixel['6'][4] = 0b01000100;
+    fuente->pixel['6'][5] = 0b01000100;
+    fuente->pixel['6'][6] = 0b00111000;
+    fuente->pixel['6'][7] = 0b00000000;
+
+    fuente->ancho['6']=7;
+
+    // Número 7
+
+    fuente->pixel['7'][0] = 0b01111100;
+    fuente->pixel['7'][1] = 0b00000100;
+    fuente->pixel['7'][2] = 0b00001000;
+    fuente->pixel['7'][3] = 0b00010000;
+    fuente->pixel['7'][4] = 0b00100000;
+    fuente->pixel['7'][5] = 0b00100000;
+    fuente->pixel['7'][6] = 0b00100000;
+    fuente->pixel['7'][7] = 0b00000000;
+
+    fuente->ancho['7']=7;
+
+    // Número 8
+
+    fuente->pixel['8'][0] = 0b00111000;
+    fuente->pixel['8'][1] = 0b01000100;
+    fuente->pixel['8'][2] = 0b01000100;
+    fuente->pixel['8'][3] = 0b00111000;
+    fuente->pixel['8'][4] = 0b01000100;
+    fuente->pixel['8'][5] = 0b01000100;
+    fuente->pixel['8'][6] = 0b00111000;
+    fuente->pixel['8'][7] = 0b00000000;
+
+    fuente->ancho['8']=7;
+
+    // Número 9
+
+    fuente->pixel['9'][0] = 0b00111000;
+    fuente->pixel['9'][1] = 0b01000100;
+    fuente->pixel['9'][2] = 0b01000100;
+    fuente->pixel['9'][3] = 0b00111100;
+    fuente->pixel['9'][4] = 0b00000100;
+    fuente->pixel['9'][5] = 0b00000100;
+    fuente->pixel['9'][6] = 0b00111000;
+    fuente->pixel['9'][7] = 0b00000000;
+
+    fuente->ancho['9']=7;
+
     // Letra 'A'
 
     fuente->pixel['A'][0] = 0b00111100;
@@ -372,7 +515,16 @@ void fuente_inicializar(tFuente *fuente)
     }
 }
 
-void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, const tFuente *fuente)
+void dibujar_pixel_escala(int x, int y, int escala, uint8_t color)
+{
+    for(int fila = 0; fila < escala; fila++)
+    {
+        for(int col = 0; col < escala; col++)
+            gbt_dibujar_pixel(x + col, y + fila, color);
+    }
+}
+
+void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, int escala, const tFuente *fuente)
 {
     c=toupper(c);
 
@@ -383,21 +535,21 @@ void fuente_dibujar_caracter(int x, int y, char c, uint8_t color, const tFuente 
             uint8_t mascara = 1 << (7 - col);
             if(fuente->pixel[(int)c][fila] & mascara)
             {
-                gbt_dibujar_pixel(x + col, y + fila, color);
+                dibujar_pixel_escala(x + col*escala, y + fila*escala, escala, color);
             }
         }
     }
 }
 
-void fuente_dibujar_texto(int x, int y, const char *texto, uint8_t color, const tFuente *fuente)
+void fuente_dibujar_texto(int x, int y, const char *texto, uint8_t color, int escala, const tFuente *fuente)
 {
     int i = 0;
 
     while (texto[i] != '\0')
     {
-        fuente_dibujar_caracter(x, y, texto[i], color, fuente);
+        fuente_dibujar_caracter(x, y, texto[i], color, escala, fuente);
 
-        x += fuente->ancho[(int)toupper(texto[i])];
+        x += (fuente->ancho[(int)toupper(texto[i])])*escala;
 
         i++;
     }
