@@ -17,7 +17,6 @@ void Pantalla_Inicio (tFuente *fuente, int *juego)
 
         gbt_procesar_entrada();
 
-        // 1. CONTROL DE NAVEGACIÓN (Flechas del teclado)
         if(gbt_tecla_presionada(GBTK_w))
         {
             seleccion--;
@@ -256,7 +255,7 @@ void Pantalla_Ingresar_Nombre(tFuente *fuente, char *destino, int max_chars)
             {
                 destino[len++] = c;
                 destino[len] = '\0';
-                gbt_esperar(140); /* debounce: evita que una tecla cuente 2 veces */
+                gbt_esperar(140);
             }
         }
 
@@ -267,7 +266,6 @@ void Pantalla_Ingresar_Nombre(tFuente *fuente, char *destino, int max_chars)
         fuente_dibujar_texto(TAM_VENTANA_X/2 - 90, 154, "RECORD!", 31, 3, fuente);
         fuente_dibujar_texto(220, 230, "INGRESA TU NOMBRE", 30, 1, fuente);
 
-        /* Cursor parpadeante: muestra un '_' cada ~30 frames */
         char display[16];
         snprintf(display, sizeof(display), "%s%s",
                  destino,

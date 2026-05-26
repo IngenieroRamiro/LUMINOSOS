@@ -1,11 +1,11 @@
 #include "colision.h"
 
-int verificar_colision(uint8_t mat[FILAS][COLS], int pieza[8])
+int verificar_colision(uint8_t mat[FILAS][COLS], int pieza[], int tam)
 {
     int prox_f;
     int c;
 
-    for (int i = 0; i < 8; i += 2)
+    for (int i = 0; i < tam; i += 2)
     {
         prox_f = pieza[i] + 1;
         c = pieza[i+1];
