@@ -3,9 +3,22 @@
 
 #define LINEAS_POR_NIVEL 10
 
-/* Tabla NES: puntos base segun cantidad de lineas eliminadas a la vez.
-   El indice 0 nunca se usa (no hay puntaje por 0 lineas). */
-static const int PUNTOS_POR_LINEAS[5] = { 0, 40, 100, 300, 1200 };
+/*
+ * Devuelve los puntos base del scoring NES segun cuantas lineas
+ * se eliminaron a la vez. Solo acepta 1..4; el default 0 es una
+ * red de seguridad por si llega un valor invalido.
+ */
+static int puntos_base_nes(int cant_lineas)
+{
+    switch (cant_lineas)
+    {
+        case 1: return 40;    /* single */
+        case 2: return 100;   /* double */
+        case 3: return 300;   /* triple */
+        case 4: return 1200;  /* tetris */
+        default: return 0;
+    }
+}
 
 /*
  * Suma a y b saturando en INT_MAX. Evita UB por overflow signed,
@@ -33,7 +46,7 @@ void puntuacion_sumar_lineas(tPuntuacion *p, int cant_lineas)
         return;
 
     /* El multiplicador usa el nivel ANTES de actualizar las lineas. */
-    incremento = PUNTOS_POR_LINEAS[cant_lineas] * (p->nivel + 1);
+    incremento = puntos_base_nes(cant_lineas) * (p->nivel + 1);
     p->puntaje = sumar_saturado(p->puntaje, incremento);
 
     p->lineas += cant_lineas;
