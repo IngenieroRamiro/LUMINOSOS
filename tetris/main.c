@@ -44,7 +44,11 @@ int main()
 
     srand(time(NULL));
 
-    uint8_t tablero[FILAS][COLS] = {0};
+    //uint8_t tablero[FILAS][COLS] = {0};
+    tTablero tablero;
+
+    if (!tablero_crear(&tablero, FILAS, COLS))
+        return 1; //nuevo
 
     int juego_corriendo = 1;
     int p_caidas = 0;
@@ -60,7 +64,10 @@ int main()
     int figura = rand () % 7;
     //int* figura = &num;
 
-    int mat_coordenads[PIEZAS][8] =
+    tPieza pieza;
+    pieza_generar(&pieza, figura);//nuevo
+
+    /*int mat_coordenads[PIEZAS][8] =
     {
         {0,3,0,4,0,5,0,6},
         {1,4,1,5,1,6,0,6},
@@ -69,7 +76,7 @@ int main()
         {1,5,1,6,0,4,0,5},
         {0,4,0,5,1,4,1,5},
         {1,3,1,4,1,5,0,4}
-    };
+    };*/
 
     Pantalla_Inicio (&fuente, &juego_corriendo);
 
@@ -90,16 +97,22 @@ int main()
 
             if(juego_corriendo == 1)
             {
-                Reiniciar_Tablero (tablero);
-                reiniciar_pieza(mat_coordenads, figura);
+                /*Reiniciar_Tablero (tablero);
+                reiniciar_pieza(mat_coordenads, figura);*/
+                tablero_limpiar(&tablero);
+                figura = rand() % 7;
+                pieza_generar(&pieza, figura);//nuevo
                 puntuacion_iniciar(&puntuacion);
+                velocidad_actual = VELOCIDAD_INICIAL;
+                p_caidas = 0;
+                actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida, 1 );
             }
         }
 
-        if (gbt_tecla_presionada(GBTK_ESCAPE))
-            juego_corriendo = 0;
+        /*if (gbt_tecla_presionada(GBTK_ESCAPE))
+            juego_corriendo = 0;*/ ///ya no
 
-        if (gbt_temporizador_consumir(reloj_caida))
+        /*if (gbt_temporizador_consumir(reloj_caida))
         {
             if (verificar_colision(tablero, mat_coordenads[figura]))
             {
@@ -134,9 +147,9 @@ int main()
                 figuras_caen(tablero, mat_coordenads[figura]);
 
             }
-        }
+        }*/
 
-        if (gbt_tecla_presionada(GBTK_w) && figura != 5)
+        /*if (gbt_tecla_presionada(GBTK_w) && figura != 5)
         {
             borrar(tablero, mat_coordenads[figura]);
 
@@ -148,9 +161,58 @@ int main()
             figuras_caen(tablero, mat_coordenads[figura]);
 
             gbt_esperar(150);
+        }*/
+        if (gbt_temporizador_consumir(reloj_caida))
+        {
+            if (pieza_puede_mover(&tablero, &pieza, 1, 0))
+            {
+                pieza_mover(&pieza, 1, 0);
+            }
+            else
+            {
+                pieza_fijar(&tablero, &pieza);
+
+                p_caidas++;
+
+                actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida, 0);
+
+                int lineas = eliminar_lineas(&tablero);
+
+                if (lineas > 0)
+                    puntuacion_sumar_lineas(&puntuacion, lineas);
+
+                figura = rand() % 7;
+
+                pieza_generar(&pieza, figura);
+
+                if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
+                {
+                    tablero_limpiar(&tablero);
+
+                    puntuacion_iniciar(&puntuacion);
+
+                    velocidad_actual = VELOCIDAD_INICIAL;
+
+                    p_caidas = 0;
+
+                    actualizar_velocidad( &velocidad_actual, p_caidas, &reloj_caida, 1);
+
+                    Game_over(&fuente, &juego_corriendo);
+                }
+
+                continue;
+            }
         }
 
-        if (gbt_tecla_presionada(GBTK_d))
+        if (gbt_tecla_presionada(GBTK_w))
+        {
+            if (pieza_puede_rotar(&tablero, &pieza))
+                pieza_rotar(&pieza);
+
+            gbt_esperar(150);
+        }//nuevo
+
+        /*if (gbt_tecla_presionada(GBTK_d))
         {
             borrar(tablero, mat_coordenads[figura]);
 
@@ -162,9 +224,16 @@ int main()
             figuras_caen(tablero, mat_coordenads[figura]);
 
             gbt_esperar(100);
-        }
+        }*/
+        if (gbt_tecla_presionada(GBTK_d))
+        {
+            if (pieza_puede_mover(&tablero, &pieza, 0, 1))
+                pieza_mover(&pieza, 0, 1);
 
-        if (gbt_tecla_presionada(GBTK_a))
+            gbt_esperar(100);
+        }//nuevo
+
+        /*if (gbt_tecla_presionada(GBTK_a))
         {
             borrar(tablero, mat_coordenads[figura]);
 
@@ -176,9 +245,16 @@ int main()
             figuras_caen(tablero, mat_coordenads[figura]);
 
             gbt_esperar(100);
-        }
+        }*/
+        if (gbt_tecla_presionada(GBTK_a))
+        {
+            if (pieza_puede_mover(&tablero, &pieza, 0, -1))
+                pieza_mover(&pieza, 0, -1);
 
-        if( gbt_tecla_presionada(GBTK_ESPACIO) )
+            gbt_esperar(100);
+        }//nuevo
+
+        /*if( gbt_tecla_presionada(GBTK_ESPACIO) )
         {
             borrar(tablero, mat_coordenads[figura]);
 
@@ -200,7 +276,48 @@ int main()
             figura = rand() % 7;
 
             gbt_esperar(180);
-        }
+        }*/
+        if (gbt_tecla_presionada(GBTK_ESPACIO))
+        {
+            while (pieza_puede_mover(&tablero, &pieza, 1, 0))
+            {
+                pieza_mover(&pieza, 1, 0);
+            }
+
+            pieza_fijar(&tablero, &pieza);
+
+            p_caidas++;
+
+            actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida, 0);
+
+            int lineas = eliminar_lineas(&tablero);
+
+            if (lineas > 0)
+                puntuacion_sumar_lineas(&puntuacion, lineas);
+
+            figura = rand() % 7;
+
+            pieza_generar(&pieza, figura);
+
+            if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
+            {
+                tablero_limpiar(&tablero);
+
+                puntuacion_iniciar(&puntuacion);
+
+                velocidad_actual = VELOCIDAD_INICIAL;
+
+                p_caidas = 0;
+
+                actualizar_velocidad(&velocidad_actual, p_caidas, &reloj_caida, 1);
+
+                Game_over(&fuente, &juego_corriendo);
+            }
+
+            gbt_esperar(120);
+
+            continue;
+        }//nuevo
 
 
 
@@ -212,7 +329,8 @@ int main()
 
         //printf("T: %d",tab);
 
-        dibujar_tablero(tablero);
+        //dibujar_tablero(tablero);
+        dibujar_tablero(&tablero, &pieza);//nuevo
         dibujar_hud(&puntuacion, &fuente);
         gbt_volcar_backbuffer();
 
@@ -220,6 +338,8 @@ int main()
     }
 
     gbt_temporizador_destruir(reloj_caida);
+
+    tablero_destruir(&tablero);//nuevo
 
     gbt_cerrar();
 

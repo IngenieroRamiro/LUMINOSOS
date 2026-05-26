@@ -13,9 +13,9 @@
 #define PIEZAS 7
 #define PRUEBA 1
 
-#define PIEZAS_AUMENTAR 3
-#define VELOCIDAD_AUMENTAR 0.1f
-#define MAX_VELOCIDAD 0.7
-#define VELOCIDAD_INICIAL 0.3f
+#define PIEZAS_AUMENTAR 3           // cantidad de piezas a caer para aumentar la velocidad
+#define VELOCIDAD_AUMENTAR 0.1f     // porcentaje de aumento
+#define MAX_VELOCIDAD 0.7           // velocidad máxima / tiempo mínimo de caída
+#define VELOCIDAD_INICIAL 1.0f      // velocidad inicial
 
-#endif /* TIPOS_H */
+#endif // TIPOS_H

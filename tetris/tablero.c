@@ -1,4 +1,111 @@
 #include "tablero.h"
+#include <stdlib.h>
+#include <string.h>
+
+int tablero_crear(tTablero* t, int filas, int columnas)
+{
+    t->filas = filas;
+    t->columnas = columnas;
+
+    t->celdas = malloc(sizeof(tCelda*) * filas);
+
+    if (!t->celdas)
+        return 0;
+
+    for (int i = 0; i < filas; i++)
+    {
+        t->celdas[i] = calloc(columnas, sizeof(tCelda));
+
+        if (!t->celdas[i])
+        {
+            for (int j = 0; j < i; j++)
+                free(t->celdas[j]);
+
+            free(t->celdas);
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+void tablero_destruir(tTablero* t)
+{
+    for (int i = 0; i < t->filas; i++)
+        free(t->celdas[i]);
+
+    free(t->celdas);
+    t->celdas = NULL;
+}
+
+void tablero_limpiar(tTablero* t)
+{
+    for (int i = 0; i < t->filas; i++)
+        memset(t->celdas[i], 0, t->columnas * sizeof(tCelda));
+}
+
+int tablero_dentro(const tTablero* t, int f, int c)
+{
+    return ((f >= 0) && (f < t->filas) && (c >= 0) && (c < t->columnas));
+}
+
+int tablero_ocupado(const tTablero* t, int f, int c)
+{
+    if (!tablero_dentro(t, f, c))
+        return 1;
+
+    return t->celdas[f][c] != 0;
+}
+
+void tablero_fijar_celda(tTablero* t, int f, int c, uint8_t valor)
+{
+    if (tablero_dentro(t, f, c))
+        t->celdas[f][c] = valor;
+}
+
+static int fila_completa(const tTablero* t, int fila)
+{
+    for (int c = 0; c < t->columnas; c++)
+    {
+        if (t->celdas[fila][c] == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int eliminar_lineas(tTablero* t)
+{
+    int eliminadas = 0;
+
+    for (int f = t->filas - 1; f >= 0; f--)
+    {
+        if (fila_completa(t, f))
+        {
+            tCelda* aux = t->celdas[f];
+
+            for (int k = f; k > 0; k--)
+                t->celdas[k] = t->celdas[k - 1];
+
+            t->celdas[0] = aux;
+
+            memset(t->celdas[0], 0, t->columnas * sizeof(tCelda));
+
+            eliminadas++;
+            f++;
+        }
+    }
+
+    return eliminadas;
+}
+
+
+/// ////////////////////// ///
+/// ARQUITECTURA ANTERIOR ///
+
+/*
+
+#include "tablero.h"
 
 void borrar(uint8_t mat[FILAS][COLS], int mat_coor[])
 {
@@ -111,4 +218,4 @@ void Reiniciar_Tablero (uint8_t mat[FILAS][COLS])
             mat[f][c] = 0;
         }
     }
-}
+}*/

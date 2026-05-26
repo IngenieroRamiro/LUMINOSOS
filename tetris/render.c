@@ -2,7 +2,50 @@
 #include <stdio.h>
 #include "GBT/gbt.h"
 
-void dibujar_tablero(uint8_t mat[FILAS][COLS])
+void dibujar_tablero(const tTablero* t, const tPieza* pieza)
+{
+    int pos_x = (TAM_VENTANA_X / 2) - (COLS * TAM_MINO)/2;
+    int pos_y = 100;
+
+    for (int f = 2; f < t->filas; f++)
+    {
+        for (int c = 0; c < t->columnas; c++)
+        {
+            int valor = t->celdas[f][c];
+
+            for (int i = 0; i < BLOQUES; i++)
+            {
+                if ((pieza->bloques[i].f == f) && (pieza->bloques[i].c == c))
+                    valor = pieza->color;
+            }
+
+            int px = pos_x + c * TAM_MINO;
+            int py = pos_y + (f - 2) * TAM_MINO;
+
+            int borde = valor == 0 ? 8 : 7;
+
+            for (int i = 0; i < TAM_MINO; i++)
+            {
+                for (int j = 0; j < TAM_MINO; j++)
+                    gbt_dibujar_pixel(px + i, py + j, borde);
+            }
+
+            int centro = valor == 0 ? 0 : valor;
+
+            for (int i = 1; i < TAM_MINO - 1; i++)
+            {
+                for (int j = 1; j < TAM_MINO - 1; j++)
+                    gbt_dibujar_pixel(px + i, py + j, centro);
+            }
+        }
+    }
+}
+
+
+/// ///////////////////////// ///
+/// DIBUJAR TABLERO ANTERIOR ///
+
+/*void dibujar_tablero(uint8_t mat[FILAS][COLS])
 {
     int pos_pantalla_x = (TAM_VENTANA_X / 2) - (COLS * TAM_MINO)/2;
 
@@ -28,7 +71,7 @@ void dibujar_tablero(uint8_t mat[FILAS][COLS])
                     gbt_dibujar_pixel(px + i, py + j, color_centro);
         }
     }
-}
+}*/
 
 void dibujar_forma(int x, int y, int ancho, int alto, int c1, int c2, int c3)
 {
@@ -60,6 +103,7 @@ void dibujar_fondo(tFuente *fuente)
     fuente_dibujar_texto(TAM_VENTANA_X/2 - 61, 70, "tetris", 11, 3, fuente);*/
 
     ///fondo anterior
+
     for(int f = 0; f < 6; f++)
     {
         x = 0;

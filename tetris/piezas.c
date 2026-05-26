@@ -1,4 +1,109 @@
 #include "piezas.h"
+
+static const int FORMAS[7][8] =
+{
+    {1,3,1,4,1,5,1,6},
+    {2,4,2,5,2,6,1,6},
+    {2,4,2,5,2,6,1,4},
+    {2,4,2,5,1,5,1,6},
+    {2,5,2,6,1,4,1,5},
+    {1,4,1,5,2,4,2,5},
+    {2,3,2,4,2,5,1,4}
+};
+
+void pieza_generar(tPieza* p, int tipo)
+{
+    p->tipo = tipo;
+    p->color = pieza_color(tipo);
+
+    for (int i = 0; i < BLOQUES; i++)
+    {
+        p->bloques[i].f = FORMAS[tipo][i * 2];
+        p->bloques[i].c = FORMAS[tipo][i * 2 + 1];
+    }
+}
+
+int pieza_puede_mover(const tTablero* t, const tPieza* p, int moverF, int moverC)
+{
+    for (int i = 0; i < BLOQUES; i++)
+    {
+        int nuevaF = p->bloques[i].f + moverF;
+        int nuevaC = p->bloques[i].c + moverC;
+
+        if (tablero_ocupado(t, nuevaF, nuevaC))
+            return 0;
+    }
+
+    return 1;
+}
+
+void pieza_mover(tPieza* p, int moverF, int moverC)
+{
+    for (int i = 0; i < BLOQUES; i++)
+    {
+        p->bloques[i].f += moverF;
+        p->bloques[i].c += moverC;
+    }
+}
+
+int pieza_puede_rotar(const tTablero* t, const tPieza* p)
+{
+    tBloque pivot = p->bloques[1];
+
+    if (p->tipo == 5)
+        return 0;
+
+    for (int i = 0; i < BLOQUES; i++)
+    {
+        int moverF = p->bloques[i].f - pivot.f;
+        int moverC = p->bloques[i].c - pivot.c;
+
+        int nf = pivot.f + moverC;
+        int nc = pivot.c - moverF;
+
+        if (tablero_ocupado(t, nf, nc))
+            return 0;
+    }
+
+    return 1;
+}
+
+void pieza_rotar(tPieza* p)
+{
+    tBloque pivot = p->bloques[1];
+
+    for (int i = 0; i < BLOQUES; i++)
+    {
+        int moverF = p->bloques[i].f - pivot.f;
+        int moverC = p->bloques[i].c - pivot.c;
+
+        p->bloques[i].f = pivot.f + moverC;
+        p->bloques[i].c = pivot.c - moverF;
+    }
+}
+
+void pieza_fijar(tTablero* t, const tPieza* p)
+{
+    for (int i = 0; i < BLOQUES; i++)
+    {
+        tablero_fijar_celda(t, p->bloques[i].f, p->bloques[i].c, 11);
+    }
+}
+
+int pieza_color(int figura)
+{
+    const int colores[] = {1, 176, 126};
+
+    return colores[figura % 3];
+}
+
+/// ////////////////////// ///
+/// ARQUITECTURA ANTERIOR ///
+
+/*
+
+
+#include "piezas.h"
 #include <stdlib.h>
 
 
@@ -91,4 +196,4 @@ void mover_izquierda(int pieza[8], uint8_t tablero[FILAS][COLS])
         for (int i = 1; i < 8; i += 2)
             pieza[i]--;
     }
-}
+}*/
