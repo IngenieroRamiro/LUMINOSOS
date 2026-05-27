@@ -6,6 +6,10 @@
 #define MAX_RECORDS 5
 #define MAX_NOMBRE  8
 
+<<<<<<< Updated upstream
+=======
+#define RUTA_ESTADISTICAS "estadisticas.dat"
+>>>>>>> Stashed changes
 
 typedef struct
 {

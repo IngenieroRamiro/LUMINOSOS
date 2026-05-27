@@ -128,9 +128,28 @@ int main()
             Pantalla_Records(&fuente, &records);
             juego_corriendo = 2;
         }
+<<<<<<< Updated upstream
 
         if (gbt_tecla_presionada(GBTK_ESCAPE))
             juego_corriendo = 0;
+=======
+        if (*p_juego == 4)
+        {
+            Pantalla_Records(&fuente, p_juego);
+        }
+        if (*p_juego == 6)
+        {
+            if (partida_cargar("savegame.dat", p_juego, &tablero, &pieza, &puntuacion, p_vel, p_caidas_aux))
+            {
+                gbt_temporizador_destruir(reloj_caida);
+                reloj_caida = gbt_temporizador_crear(*p_vel);
+            }
+            else
+            {
+                *p_juego = 2;
+            }
+        }
+>>>>>>> Stashed changes
 
         if (juego_corriendo == 1 || juego_corriendo == 3)
         {
@@ -148,6 +167,7 @@ int main()
 
                     if (juego_corriendo == 3)
                     {
+<<<<<<< Updated upstream
                         figura = rand() % 11;
                         enteros_pieza = (figura >= 7) ? 10 : 8;
                     }
@@ -155,8 +175,18 @@ int main()
                     {
                         figura = rand() % 7;
                         enteros_pieza = 8;
+=======
+                        tPuntuacion punt_final = puntuacion;
+                        tablero_limpiar(&tablero);
+                        puntuacion_iniciar(&puntuacion);
+                        *p_vel = VELOCIDAD_INICIAL;
+                        *p_caidas_aux = 0;
+                        actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                        Game_over(&fuente, p_juego, &punt_final);
+>>>>>>> Stashed changes
                     }
 
+<<<<<<< Updated upstream
                     int figura_fijada = figura;
                     reiniciar_pieza_10(mat_coordenads, figura_fijada);
                     figura = figura_fijada;
@@ -183,6 +213,27 @@ int main()
 
                     if (juego_corriendo == 2)
                         Pantalla_Inicio (&fuente, &juego_corriendo);
+=======
+            if (gbt_tecla_presionada(GBTK_q))
+            {
+                if (*p_juego == 3)
+                {
+                    pieza_rotar_anti_deluxe(&tablero, &pieza);
+                }
+                else
+                {
+                    if (pieza_puede_rotar_anti(&tablero, &pieza))
+                        pieza_rotar_anti(&pieza);
+                }
+                gbt_esperar(150);
+            }
+
+            if (gbt_tecla_presionada(GBTK_w))
+            {
+                if (*p_juego == 3)
+                {
+                    pieza_rotar_deluxe(&tablero, &pieza);
+>>>>>>> Stashed changes
                 }
                 else
                 {
@@ -311,6 +362,7 @@ int main()
 
                 if (juego_corriendo == 3)
                 {
+<<<<<<< Updated upstream
                     figura = rand() % 11;
                     enteros_pieza = (figura >= 7) ? 10 : 8;
                 }
@@ -318,6 +370,50 @@ int main()
                 {
                     figura = rand() % 7;
                     enteros_pieza = 8;
+=======
+                    tPuntuacion punt_final = puntuacion;
+                    tablero_limpiar(&tablero);
+                    puntuacion_iniciar(&puntuacion);
+                    *p_vel = VELOCIDAD_INICIAL;
+                    *p_caidas_aux = 0;
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                    Game_over(&fuente, p_juego, &punt_final);
+                }
+                gbt_esperar(120);
+                continue;
+            }
+
+            if (gbt_tecla_presionada(GBTK_s))
+            {
+                if (pieza_puede_mover(&tablero, &pieza, 1, 0))
+                {
+                    pieza_mover(&pieza, 1, 0);
+
+                }
+                else
+                {
+                    pieza_fijar(&tablero, &pieza);
+                    (*p_caidas_aux)++;
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 0);
+
+                    lineas = eliminar_lineas(&tablero);
+                    if (lineas > 0)
+                        puntuacion_sumar_lineas(&puntuacion, lineas);
+
+                    figura = rand() % ((*p_juego == 3) ? PIEZAS_DELUXE : PIEZAS_NORMAL);
+                    pieza_generar(&pieza, figura);
+
+                    if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
+                    {
+                        tPuntuacion punt_final = puntuacion;
+                        tablero_limpiar(&tablero);
+                        puntuacion_iniciar(&puntuacion);
+                        *p_vel = VELOCIDAD_INICIAL;
+                        *p_caidas_aux = 0;
+                        actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                        Game_over(&fuente, p_juego, &punt_final);
+                    }
+>>>>>>> Stashed changes
                 }
 
                 int figura_fijada = figura;
