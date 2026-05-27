@@ -36,10 +36,6 @@
 			<Add option="-lgbt" />
 			<Add directory="lib/GBT_v2026.1C.01/lib" />
 		</Linker>
-		<Unit filename="colision.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="colision.h" />
 		<Unit filename="dificultad.c">
 			<Option compilerVar="CC" />
 		</Unit>

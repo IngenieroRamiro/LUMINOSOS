@@ -368,3 +368,198 @@
 1779752301 source:c:\users\ramirol\documents\github\luminosos\tetris\tablero.c
 	"tablero.h"
 
+1779832747 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\dificultad.c
+	"dificultad.h"
+	"tipos.h"
+
+1779832747 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\dificultad.h
+	"GBT/gbt.h"
+
+1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778884375 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1779836530 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\tipos.h
+	<stdint.h>
+
+1778884374 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\entrada.c
+	"entrada.h"
+
+1778884374 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\entrada.h
+
+1779763680 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\fuentes.c
+	<string.h>
+	<stdint.h>
+	<ctype.h>
+	"GBT/gbt.h"
+	"fuentes.h"
+
+1779836530 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\fuentes.h
+	<stdint.h>
+
+1778884374 source:c:\users\miguel\onedrive\documentos\github\luminosos\tetris\juego.c
+	"juego.h"
+
+1778884374 c:\users\miguel\onedrive\documentos\github\luminosos\tetris\juego.h
+
+1779836530 source:c:\users\miguel\onedrive\escritorio\alen\tetris\colision.c
+	"colision.h"
+
+1779836530 c:\users\miguel\onedrive\escritorio\alen\tetris\colision.h
+	<stdint.h>
+	"tipos.h"
+
+1779842894 c:\users\miguel\onedrive\escritorio\alen\tetris\tipos.h
+	<stdint.h>
+
+1779832747 source:c:\users\miguel\onedrive\escritorio\alen\tetris\dificultad.c
+	"dificultad.h"
+	"tipos.h"
+
+1779832747 c:\users\miguel\onedrive\escritorio\alen\tetris\dificultad.h
+	"GBT/gbt.h"
+
+1778884375 c:\users\miguel\onedrive\escritorio\alen\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt.h
+	"gbt_entrada.h"
+	"gbt_graficos.h"
+	"gbt_logger.h"
+	"gbt_temporizador.h"
+	"gbt_vector.h"
+
+1778884375 c:\users\miguel\onedrive\escritorio\alen\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_entrada.h
+	<stdint.h>
+
+1778884375 c:\users\miguel\onedrive\escritorio\alen\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_graficos.h
+	<stdint.h>
+
+1778884375 c:\users\miguel\onedrive\escritorio\alen\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_logger.h
+
+1778884375 c:\users\miguel\onedrive\escritorio\alen\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_temporizador.h
+	<stdint.h>
+
+1778884375 c:\users\miguel\onedrive\escritorio\alen\tetris\lib\gbt_v2026.1c.01\include\gbt\gbt_vector.h
+	<stdlib.h>
+	<stdint.h>
+
+1778884374 source:c:\users\miguel\onedrive\escritorio\alen\tetris\entrada.c
+	"entrada.h"
+
+1778884374 c:\users\miguel\onedrive\escritorio\alen\tetris\entrada.h
+
+1779763680 source:c:\users\miguel\onedrive\escritorio\alen\tetris\fuentes.c
+	<string.h>
+	<stdint.h>
+	<ctype.h>
+	"GBT/gbt.h"
+	"fuentes.h"
+
+1779836530 c:\users\miguel\onedrive\escritorio\alen\tetris\fuentes.h
+	<stdint.h>
+
+1778884374 source:c:\users\miguel\onedrive\escritorio\alen\tetris\juego.c
+	"juego.h"
+
+1778884374 c:\users\miguel\onedrive\escritorio\alen\tetris\juego.h
+
+1779842894 source:c:\users\miguel\onedrive\escritorio\alen\tetris\main.c
+	<stdio.h>
+	<stdint.h>
+	<time.h>
+	"GBT/gbt.h"
+	"tipos.h"
+	"render.h"
+	"tablero.h"
+	"piezas.h"
+	"dificultad.h"
+	"fuentes.h"
+	"menu.h"
+	"puntuacion.h"
+
+1779836530 c:\users\miguel\onedrive\escritorio\alen\tetris\render.h
+	<stdint.h>
+	"fuentes.h"
+	"tipos.h"
+	"puntuacion.h"
+	"tablero.h"
+	"piezas.h"
+	<stdint.h>
+	"fuentes.h"
+	"tipos.h"
+	"puntuacion.h"
+
+1779836530 c:\users\miguel\onedrive\escritorio\alen\tetris\puntuacion.h
+	"tipos.h"
+
+1779837170 c:\users\miguel\onedrive\escritorio\alen\tetris\tablero.h
+	<stdint.h>
+	"tipos.h"
+	<stdint.h>
+	"tipos.h"
+
+1779842894 c:\users\miguel\onedrive\escritorio\alen\tetris\piezas.h
+	"tablero.h"
+	"tipos.h"
+	<stdint.h>
+	"tipos.h"
+
+1779842893 c:\users\miguel\onedrive\escritorio\alen\tetris\menu.h
+	"fuentes.h"
+	"tipos.h"
+
+1779842893 source:c:\users\miguel\onedrive\escritorio\alen\tetris\menu.c
+	<stdio.h>
+	"menu.h"
+	"render.h"
+	"GBT/gbt.h"
+	"menu.h"
+	"render.h"
+	"GBT/gbt.h"
+
+1779842893 source:c:\users\miguel\onedrive\escritorio\alen\tetris\piezas.c
+	"piezas.h"
+	<stdlib.h>
+	"piezas.h"
+	<stdlib.h>
+
+1779842894 source:c:\users\miguel\onedrive\escritorio\alen\tetris\puntuacion.c
+	"puntuacion.h"
+	<limits.h>
+
+1779842893 source:c:\users\miguel\onedrive\escritorio\alen\tetris\records.c
+	"records.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1779842893 c:\users\miguel\onedrive\escritorio\alen\tetris\records.h
+	"tipos.h"
+
+1779842894 source:c:\users\miguel\onedrive\escritorio\alen\tetris\render.c
+	"render.h"
+	<stdio.h>
+	"GBT/gbt.h"
+
+1779836530 source:c:\users\miguel\onedrive\escritorio\alen\tetris\tablero.c
+	"tablero.h"
+	<stdlib.h>
+	<string.h>
+	"tablero.h"
+

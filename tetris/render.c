@@ -4,7 +4,7 @@
 
 void dibujar_tablero(const tTablero* t, const tPieza* pieza)
 {
-    int pos_x = (TAM_VENTANA_X / 2) - (COLS * TAM_MINO)/2;
+    int pos_x = (TAM_VENTANA_X / 2) - (t->columnas * TAM_MINO)/2;
     int pos_y = 100;
 
     for (int f = 2; f < t->filas; f++)
@@ -13,7 +13,7 @@ void dibujar_tablero(const tTablero* t, const tPieza* pieza)
         {
             int valor = t->celdas[f][c];
 
-            for (int i = 0; i < BLOQUES; i++)
+            for (int i = 0; i < pieza->cant_bloques; i++)
             {
                 if ((pieza->bloques[i].f == f) && (pieza->bloques[i].c == c))
                     valor = pieza->color;
@@ -271,9 +271,9 @@ void dibujar_hud(const tPuntuacion *p, const tFuente *fuente)
     const int x = 415;
     const int y_base = 118;
 
-    int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS * TAM_MINO)/2;
+    int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS_NORMAL * TAM_MINO) / 2;
 
-    dibujar_forma(inicio_tablero + (COLS * TAM_MINO) + 15, 95, 115, 140, 176, 127, 127);
+    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 15, 95, 115, 140, 176, 127, 127);
 
     fuente_dibujar_texto(x, y_base, "PUNTAJE", 11, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->puntaje);

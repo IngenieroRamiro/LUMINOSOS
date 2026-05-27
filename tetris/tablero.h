@@ -24,7 +24,7 @@ void tablero_fijar_celda(tTablero* t, int f, int c, uint8_t valor);
 
 int eliminar_lineas(tTablero* t);
 
-#endif
+#endif //tablero.h
 
 
 
