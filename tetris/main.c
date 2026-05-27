@@ -122,6 +122,11 @@ int main()
             Pantalla_Configuracion(&fuente, p_juego, &config_juego);
         }
 
+        if (*p_juego == 4)
+        {
+            Pantalla_Records(&fuente, p_juego);
+        }
+
         if (*p_juego == 6)
         {
             if (partida_cargar("savegame.dat", p_juego, &tablero, &pieza, &puntuacion, p_vel, p_caidas_aux))
@@ -158,12 +163,13 @@ int main()
 
                     if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
                     {
+                        tPuntuacion punt_final = puntuacion;   // copia antes del reset
                         tablero_limpiar(&tablero);
                         puntuacion_iniciar(&puntuacion);
                         *p_vel = VELOCIDAD_INICIAL;
                         *p_caidas_aux = 0;
                         actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
-                        Game_over(&fuente, p_juego);
+                        Game_over(&fuente, p_juego, &punt_final);
                     }
                     continue;
                 }
@@ -235,12 +241,13 @@ int main()
 
                 if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
                 {
+                    tPuntuacion punt_final = puntuacion;   // copia antes del reset
                     tablero_limpiar(&tablero);
                     puntuacion_iniciar(&puntuacion);
                     *p_vel = VELOCIDAD_INICIAL;
                     *p_caidas_aux = 0;
                     actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
-                    Game_over(&fuente, p_juego);
+                    Game_over(&fuente, p_juego, &punt_final);
                 }
                 gbt_esperar(120);
                 continue;
@@ -266,15 +273,16 @@ int main()
                     figura = rand() % ((*p_juego == 3) ? PIEZAS_DELUXE : PIEZAS_NORMAL);
                     pieza_generar(&pieza, figura);
 
-                    if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
-                    {
-                        tablero_limpiar(&tablero);
-                        puntuacion_iniciar(&puntuacion);
-                        *p_vel = VELOCIDAD_INICIAL;
-                        *p_caidas_aux = 0;
-                        actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
-                        Game_over(&fuente, p_juego);
-                    }
+                if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
+                {
+                    tPuntuacion punt_final = puntuacion;   // copia antes del reset
+                    tablero_limpiar(&tablero);
+                    puntuacion_iniciar(&puntuacion);
+                    *p_vel = VELOCIDAD_INICIAL;
+                    *p_caidas_aux = 0;
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                    Game_over(&fuente, p_juego, &punt_final);
+                }
                 }
                 gbt_esperar(50);
             }

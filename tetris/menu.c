@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 #include "menu.h"
 #include "render.h"
@@ -193,17 +194,40 @@ void Pantalla_Configuracion(tFuente *fuente, int *juego, tConfiguracion* config)
     *juego = 2; // Vuelve al menú
 }
 
-void Game_over(tFuente *fuente, int *juego)
+void Game_over(tFuente *fuente, int *juego, const tPuntuacion *punt)
 {
-
     int en_pausa = 1;
     int seleccion = 1;
+    tRecords records;
+    tRecord  nuevo;
+    char     nombre[MAX_NOMBRE + 1];
+
+    // Si el puntaje entra al top 5, pedimos el nombre y guardamos.
+    records_cargar(&records, RUTA_RECORDS);
+
+    if (punt->puntaje > 0 && records_es_top(&records, punt->puntaje))
+    {
+        Pantalla_Ingresar_Nombre(fuente, nombre);
+
+        // Si canceló con ESC, nombre queda vacío y no guardamos nada.
+        if (nombre[0] != '\0')
+        {
+            memset(&nuevo, 0, sizeof(nuevo));   // zera padding del struct
+            strncpy(nuevo.nombre, nombre, MAX_NOMBRE);
+            nuevo.nombre[MAX_NOMBRE] = '\0';
+            nuevo.puntaje = punt->puntaje;
+            nuevo.lineas  = punt->lineas;
+            nuevo.nivel   = punt->nivel;
+
+            records_agregar(&records, &nuevo);
+            records_guardar(&records, RUTA_RECORDS);
+        }
+    }
 
     gbt_borrar_backbuffer(0);
 
     while (en_pausa)
     {
-
         dibujar_fondo(fuente);
 
         gbt_procesar_entrada();
@@ -240,6 +264,7 @@ void Game_over(tFuente *fuente, int *juego)
                 en_pausa = 0;
                 *juego = 2;
             }
+
         fuente_dibujar_texto(TAM_VENTANA_X/2 - 50, 112, "Game", 31, 3, fuente);
         fuente_dibujar_texto(TAM_VENTANA_X/2 - 50, 154, "Over", 31, 3, fuente);
 
@@ -250,8 +275,94 @@ void Game_over(tFuente *fuente, int *juego)
         fuente_dibujar_texto(240, 280, "ESC - VOLVER AL MENU", color_opcion2, 1, fuente);
 
         gbt_volcar_backbuffer();
-
         gbt_esperar(16);
+    }
+}
+
+void Pantalla_Ingresar_Nombre(tFuente *fuente, char *nombre_out)
+{
+    // Tabla de teclas A-Z. No asumo que GBTK_a..GBTK_z sean contiguos.
+    const struct { int tecla; char letra; } TECLAS[] = {
+        {GBTK_a,'A'}, {GBTK_b,'B'}, {GBTK_c,'C'}, {GBTK_d,'D'}, {GBTK_e,'E'},
+        {GBTK_f,'F'}, {GBTK_g,'G'}, {GBTK_h,'H'}, {GBTK_i,'I'}, {GBTK_j,'J'},
+        {GBTK_k,'K'}, {GBTK_l,'L'}, {GBTK_m,'M'}, {GBTK_n,'N'}, {GBTK_o,'O'},
+        {GBTK_p,'P'}, {GBTK_q,'Q'}, {GBTK_r,'R'}, {GBTK_s,'S'}, {GBTK_t,'T'},
+        {GBTK_u,'U'}, {GBTK_v,'V'}, {GBTK_w,'W'}, {GBTK_x,'X'}, {GBTK_y,'Y'},
+        {GBTK_z,'Z'}
+    };
+    const int cant_teclas = sizeof(TECLAS) / sizeof(TECLAS[0]);
+
+    char buffer[MAX_NOMBRE + 1];
+    char display[MAX_NOMBRE + 2];   // +1 cursor, +1 '\0'
+    int  largo = 0;
+    int  terminado = 0;
+    int  cancelado = 0;
+
+    buffer[0] = '\0';
+
+    while (!terminado)
+    {
+        gbt_procesar_entrada();
+
+        // A-Z: agrego una letra si todavia queda lugar.
+        for (int i = 0; i < cant_teclas && largo < MAX_NOMBRE; i++)
+        {
+            if (gbt_tecla_presionada(TECLAS[i].tecla))
+            {
+                buffer[largo] = TECLAS[i].letra;
+                largo++;
+                buffer[largo] = '\0';
+                gbt_esperar(150);
+                break;
+            }
+        }
+
+        if (gbt_tecla_presionada(GBTK_IZQUIERDA) && largo > 0)
+        {
+            largo--;
+            buffer[largo] = '\0';
+            gbt_esperar(150);
+        }
+
+        if (gbt_tecla_presionada(GBTK_ENTER) && largo > 0)
+            terminado = 1;
+
+        if (gbt_tecla_presionada(GBTK_ESCAPE))
+        {
+            cancelado = 1;
+            terminado = 1;
+        }
+
+        gbt_borrar_backbuffer(0);
+        dibujar_fondo(fuente);
+
+        fuente_dibujar_texto(200, 100, "NUEVO RECORD!", 31, 2, fuente);
+        fuente_dibujar_texto(200, 170, "INGRESA TU NOMBRE:", 11, 1, fuente);
+
+
+        if (largo < MAX_NOMBRE)
+            snprintf(display, sizeof(display), "%s_", buffer);
+        else
+            snprintf(display, sizeof(display), "%s", buffer);
+
+        fuente_dibujar_texto(250, 220, display, 30, 2, fuente);
+
+        fuente_dibujar_texto(150, 320, "A-Z: ESCRIBIR", 8, 1, fuente);
+        fuente_dibujar_texto(150, 340, "FLECHA IZQ: BORRAR", 8, 1, fuente);
+        fuente_dibujar_texto(150, 360, "ENTER: CONFIRMAR    ESC: CANCELAR", 8, 1, fuente);
+
+        gbt_volcar_backbuffer();
+        gbt_esperar(16);
+    }
+
+    if (cancelado)
+    {
+        nombre_out[0] = '\0';
+    }
+    else
+    {
+        strncpy(nombre_out, buffer, MAX_NOMBRE);
+        nombre_out[MAX_NOMBRE] = '\0';
     }
 }
 
@@ -265,7 +376,7 @@ void Pantalla_Records(tFuente *fuente, int *juego)
 
     // Intentamos cargar los récords desde un archivo binario
     // Si el archivo no existe o falla, records_cargar inicializa la lista en 0
-    records_cargar(&r, "records.dat");
+    records_cargar(&r, RUTA_RECORDS);
 
     int mostrando = 1;
     while (mostrando)

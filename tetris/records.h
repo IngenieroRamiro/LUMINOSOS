@@ -6,6 +6,8 @@
 #define MAX_RECORDS 5
 #define MAX_NOMBRE  8
 
+#define RUTA_RECORDS "records.dat"
+
 typedef struct
 {
     char nombre[MAX_NOMBRE + 1];

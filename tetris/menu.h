@@ -9,8 +9,9 @@
 
 void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config);
 void Pausar_Juego(tFuente *fuente, int *juego, const tTablero* t, const tPieza* p, const tPuntuacion* punt, float velocidad, int caidas);
-void Game_over(tFuente *fuente, int *juego);
+void Game_over(tFuente *fuente, int *juego, const tPuntuacion *punt);
 void Pantalla_Configuracion(tFuente *fuente, int *juego, tConfiguracion* config);
 void Pantalla_Records(tFuente *fuente, int *juego);
+void Pantalla_Ingresar_Nombre(tFuente *fuente, char *nombre_out);
 
 #endif
