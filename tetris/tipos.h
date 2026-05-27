@@ -17,8 +17,7 @@
 
 #define PIEZAS_AUMENTAR 3
 #define VELOCIDAD_AUMENTAR 0.1f
-#define MAX_VELOCIDAD 0.7
-#define VELOCIDAD_INICIAL 1.0f
+#define MAX_VELOCIDAD 0.2f
 #define PIEZAS_REDUCIR 10
 
 typedef struct {
@@ -27,5 +26,11 @@ typedef struct {
     int velocidad_caida;
     int columnas_deluxe;
 } tConfiguracion;
+
+typedef enum {
+    VELOCIDAD_NIVEL_LENTA  = 0,
+    VELOCIDAD_NIVEL_NORMAL = 1,
+    VELOCIDAD_NIVEL_RAPIDA = 2
+} eVelocidadNivel;
 
 #endif // TIPOS_H

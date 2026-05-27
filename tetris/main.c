@@ -106,16 +106,9 @@ int main()
 
                 puntuacion_iniciar(&puntuacion);
 
-                if (p_conf->velocidad_caida == 0)
-                    *p_vel = 1.3f;
-                else if (p_conf->velocidad_caida == 1)
-                    *p_vel = 1.0f;
-                else
-                    *p_vel = 0.6f;
-
                 *p_caidas_aux = 0;
 
-                actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
             }
         }
 
@@ -154,7 +147,7 @@ int main()
                 {
                     pieza_fijar(&tablero, &pieza);
                     (*p_caidas_aux)++;
-                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 0);
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 0);
 
                     lineas = eliminar_lineas(&tablero);
                     if (lineas > 0)
@@ -170,7 +163,7 @@ int main()
                         puntuacion_iniciar(&puntuacion);
                         *p_vel = p_conf->velocidad_caida;
                         *p_caidas_aux = 0;
-                        actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                        actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
                         Game_over(&fuente, p_juego, &punt_final);
                     }
                     continue;
@@ -195,7 +188,7 @@ int main()
             {
                 if (*p_juego == 3)
                 {
-                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 2);
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 2);
                     gbt_esperar(150);
                 }
             }
@@ -241,7 +234,7 @@ int main()
 
                 pieza_fijar(&tablero, &pieza);
                 (*p_caidas_aux)++;
-                actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 0);
+                actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 0);
 
                 lineas = eliminar_lineas(&tablero);
                 if (lineas > 0)
@@ -257,7 +250,7 @@ int main()
                     puntuacion_iniciar(&puntuacion);
                     *p_vel = p_conf->velocidad_caida;
                     *p_caidas_aux = 0;
-                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
                     Game_over(&fuente, p_juego, &punt_final);
                 }
                 gbt_esperar(120);
@@ -275,7 +268,7 @@ int main()
                 {
                     pieza_fijar(&tablero, &pieza);
                     (*p_caidas_aux)++;
-                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 0);
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 0);
 
                     lineas = eliminar_lineas(&tablero);
                     if (lineas > 0)
@@ -291,7 +284,7 @@ int main()
                     puntuacion_iniciar(&puntuacion);
                     *p_vel = p_conf->velocidad_caida;
                     *p_caidas_aux = 0;
-                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
                     Game_over(&fuente, p_juego, &punt_final);
                 }
 
@@ -302,7 +295,7 @@ int main()
             gbt_borrar_backbuffer(0);
             dibujar_fondo(&fuente);
             dibujar_tablero(&tablero, &pieza);
-            dibujar_hud(&puntuacion, &fuente);
+            dibujar_hud(&puntuacion, &fuente, *p_vel);
             gbt_volcar_backbuffer();
             gbt_esperar(16);
         }

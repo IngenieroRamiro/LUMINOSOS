@@ -196,7 +196,7 @@ void dibujar_fondo(tFuente *fuente)
     }*/
 }
 
-void dibujar_hud(const tPuntuacion *p, const tFuente *fuente)
+void dibujar_hud(const tPuntuacion *p, const tFuente *fuente, float velocidad)
 {
     char buffer[16];
 
@@ -205,7 +205,7 @@ void dibujar_hud(const tPuntuacion *p, const tFuente *fuente)
 
     int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS_NORMAL * TAM_MINO) / 2;
 
-    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 15, 95, 115, 140, 176, 127, 127);
+    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 15, 95, 115, 170, 176, 127, 127);
 
     fuente_dibujar_texto(x, y_base, "PUNTAJE", 11, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->puntaje);
@@ -218,4 +218,8 @@ void dibujar_hud(const tPuntuacion *p, const tFuente *fuente)
     fuente_dibujar_texto(x, y_base + 72, "NIVEL", 11, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->nivel);
     fuente_dibujar_texto(x, y_base + 84, buffer, 7, 1, fuente);
+
+    fuente_dibujar_texto(x, y_base + 108, "VELOCIDAD", 11, 1, fuente);
+    snprintf(buffer, sizeof(buffer), "%.2fs", velocidad);
+    fuente_dibujar_texto(x, y_base + 120, buffer, 7, 1, fuente);
 }

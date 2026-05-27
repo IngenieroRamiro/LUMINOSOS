@@ -40,7 +40,7 @@ void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
         gbt_borrar_backbuffer(0);
         dibujar_fondo(fuente);
 
-        fuente_dibujar_texto(290, 80, "menu", 31, 2, fuente);
+        fuente_dibujar_texto(290, 100, "menu", 31, 2, fuente);
 
         fuente_dibujar_texto(220, 140, "1 - MODO NORMAL", (seleccion == 1) ? 30 : 8, 1, fuente);
         fuente_dibujar_texto(220, 175, "2 - MODO DELUXE", (seleccion == 2) ? 30 : 8, 1, fuente);
@@ -172,7 +172,7 @@ void Pantalla_Configuracion(tFuente *fuente, int *juego, tConfiguracion* config)
         gbt_borrar_backbuffer(0);
         dibujar_fondo(fuente);
 
-        fuente_dibujar_texto(220, 60, "configuracion", 31, 2, fuente);
+        fuente_dibujar_texto(220, 100, "configuracion", 31, 2, fuente);
 
         sprintf(buffer, "PALETA: %s", (config->paleta_color == 0) ? "CLASICA" : (config->paleta_color == 1) ? "LUMINOSA" : "NEON");
         fuente_dibujar_texto(180, 130, buffer, (seleccion == 1) ? 30 : 8, 1, fuente);
@@ -393,7 +393,7 @@ void Pantalla_Records(tFuente *fuente, int *juego)
         dibujar_fondo(fuente);
 
         // Título de la pantalla
-        fuente_dibujar_texto(220, 60, "TOP 5 RECORDS", 31, 2, fuente);
+        fuente_dibujar_texto(220, 100, "TOP 5 RECORDS", 31, 2, fuente);
 
         // Cabecera de la tabla
         fuente_dibujar_texto(120, 130, "POS   NOMBRE   PUNTAJE   LINEAS   NIVEL", 11, 1, fuente);
