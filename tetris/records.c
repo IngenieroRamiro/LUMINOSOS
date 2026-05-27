@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 static int cmp_record_desc(const void *a, const void *b)
 {
     const tRecord *ra = (const tRecord *)a;
@@ -16,7 +17,6 @@ static int cmp_record_desc(const void *a, const void *b)
 void records_iniciar(tRecords *r)
 {
     r->cant = 0;
-
     memset(r->lista, 0, sizeof(r->lista));
 }
 

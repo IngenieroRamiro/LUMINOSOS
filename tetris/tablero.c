@@ -1,115 +1,152 @@
 #include "tablero.h"
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "piezas.h"
+#include "puntuacion.h"
 
-void borrar(uint8_t mat[FILAS][COLS], int mat_coor[], int tam)
+int tablero_crear(tTablero* t, int filas, int columnas)
 {
-    int j;
+    t->filas = filas;
+    t->columnas = columnas;
 
-    for (j = 0; j < tam; j += 2)
+    t->celdas = malloc(sizeof(tCelda*) * filas);
+
+    if (!t->celdas)
+        return 0;
+
+    for (int i = 0; i < filas; i++)
     {
-        int f = mat_coor[j];
-        int c = mat_coor[j + 1];
+        t->celdas[i] = calloc(columnas, sizeof(tCelda));
 
-        if (f >= 0 && f < FILAS && c >= 0 && c < COLS && mat[f][c] == 1)
+        if (!t->celdas[i])
         {
-            mat[f][c] = 0;
+            for (int j = 0; j < i; j++)
+                free(t->celdas[j]);
+
+            free(t->celdas);
+            return 0;
         }
     }
 
-    for (j = 0; j < tam; j += 2)
-    {
-        mat_coor[j] = mat_coor[j] + 1;
-    }
+    return 1;
 }
 
-void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[], int tam)
+void tablero_destruir(tTablero* t)
 {
-    int j;
-    for (j = 0; j < tam; j = j + 2)
-    {
-        int f = mat_coor[j];
-        int c = mat_coor[j + 1];
+    for (int i = 0; i < t->filas; i++)
+        free(t->celdas[i]);
 
-        if (f >= 0 && f < FILAS && c >= 0 && c < COLS)
-        {
-            mat[f][c] = 1;
-        }
-    }
+    free(t->celdas);
+    t->celdas = NULL;
 }
 
-void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[], int tam)
+void tablero_limpiar(tTablero* t)
 {
-    int f;
-    int c;
-
-    for (int i = 0; i < tam; i += 2)
-    {
-        f = pieza[i];
-        c = pieza[i+1];
-
-        if (f >= 0 && f < FILAS && c >= 0 && c < COLS)
-        {
-            mat[f][c] = 2;
-        }
-    }
+    for (int i = 0; i < t->filas; i++)
+        memset(t->celdas[i], 0, t->columnas * sizeof(tCelda));
 }
 
-int eliminar_lineas(uint8_t mat[FILAS][COLS])
+int tablero_dentro(const tTablero* t, int f, int c)
+{
+    return ((f >= 0) && (f < t->filas) && (c >= 0) && (c < t->columnas));
+}
+
+int tablero_ocupado(const tTablero* t, int f, int c)
+{
+    if (!tablero_dentro(t, f, c))
+        return 1;
+
+    return t->celdas[f][c] != 0;
+}
+
+void tablero_fijar_celda(tTablero* t, int f, int c, uint8_t valor)
+{
+    if (tablero_dentro(t, f, c))
+        t->celdas[f][c] = valor;
+}
+
+static int fila_completa(const tTablero* t, int fila)
+{
+    for (int c = 0; c < t->columnas; c++)
+    {
+        if (t->celdas[fila][c] == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int eliminar_lineas(tTablero* t)
 {
     int eliminadas = 0;
-    int f = FILAS - 1;
 
-    while (f >= 0)
+    for (int f = t->filas - 1; f >= 0; f--)
     {
-        int completa = 1;
-        uint8_t *p   = mat[f];
-        uint8_t *fin = mat[f] + COLS;
-
-        while (p < fin)
+        if (fila_completa(t, f))
         {
-            if (*p != 2)
-            {
-                completa = 0;
-                break;
-            }
-            p++;
-        }
+            tCelda* aux = t->celdas[f];
 
-        if (completa)
-        {
             for (int k = f; k > 0; k--)
-            {
-                uint8_t *dst = mat[k];
-                uint8_t *src = mat[k-1];
-                uint8_t *tope = src + COLS;
+                t->celdas[k] = t->celdas[k - 1];
 
-                while (src < tope)
-                    *dst++ = *src++;
-            }
+            t->celdas[0] = aux;
 
-            uint8_t *q   = mat[0];
-            uint8_t *qfin = mat[0] + COLS;
-
-            while (q < qfin)
-                *q++ = 0;
+            memset(t->celdas[0], 0, t->columnas * sizeof(tCelda));
 
             eliminadas++;
-        }
-        else
-        {
-            f--;
+            f++;
         }
     }
 
     return eliminadas;
 }
 
-void Reiniciar_Tablero (uint8_t mat[FILAS][COLS])
+int partida_guardar(const char* ruta, int modo_juego, const tTablero* t, const void* p, const void* punt, float velocidad, int caidas)
 {
-    for (int f = 0; f < FILAS; f++)
+    FILE* f = fopen(ruta, "wb");
+    if (!f) return 0;
+
+    fwrite(&modo_juego, sizeof(int), 1, f);
+    fwrite(&t->filas, sizeof(int), 1, f);
+    fwrite(&t->columnas, sizeof(int), 1, f);
+    fwrite(p, sizeof(tPieza), 1, f);
+    fwrite(punt, sizeof(tPuntuacion), 1, f);
+    fwrite(&velocidad, sizeof(float), 1, f);
+    fwrite(&caidas, sizeof(int), 1, f);
+
+    for (int i = 0; i < t->filas; i++)
     {
-        for (int c = 0; c < COLS; c++)
-        {
-            mat[f][c] = 0;
-        }
+        fwrite(t->celdas[i], sizeof(tCelda), t->columnas, f);
     }
+
+    fclose(f);
+    return 1;
+}
+
+int partida_cargar(const char* ruta, int* modo_juego, tTablero* t, void* p, void* punt, float* velocidad, int* caidas)
+{
+    FILE* f = fopen(ruta, "rb");
+    if (!f) return 0;
+
+    int filas, columnas;
+
+    fread(modo_juego, sizeof(int), 1, f);
+    fread(&filas, sizeof(int), 1, f);
+    fread(&columnas, sizeof(int), 1, f);
+    fread(p, sizeof(tPieza), 1, f);
+    fread(punt, sizeof(tPuntuacion), 1, f);
+    fread(velocidad, sizeof(float), 1, f);
+    fread(caidas, sizeof(int), 1, f);
+
+    tablero_destruir(t);
+    tablero_crear(t, filas, columnas);
+
+    for (int i = 0; i < t->filas; i++)
+    {
+        fread(t->celdas[i], sizeof(tCelda), t->columnas, f);
+    }
+
+    fclose(f);
+    return 1;
 }

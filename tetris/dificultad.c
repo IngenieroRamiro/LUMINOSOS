@@ -1,7 +1,6 @@
 #include "dificultad.h"
 #include "tipos.h"
 
-
 void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizador **reloj_caida, int pierde)
 {
     if((p_caidas % PIEZAS_AUMENTAR == 0) && !pierde)

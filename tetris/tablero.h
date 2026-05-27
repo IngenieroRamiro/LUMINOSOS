@@ -4,10 +4,52 @@
 #include <stdint.h>
 #include "tipos.h"
 
-void Reiniciar_Tablero(uint8_t mat[FILAS][COLS]);
-void borrar(uint8_t mat[FILAS][COLS], int mat_coor[], int tam);
-void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[], int tam);
-void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[], int tam);
+typedef uint8_t tCelda;
+
+typedef struct
+{
+    tCelda** celdas;
+    int filas;
+    int columnas;
+} tTablero;
+
+int tablero_crear(tTablero* t, int filas, int columnas);
+void tablero_destruir(tTablero* t);
+void tablero_limpiar(tTablero* t);
+
+int tablero_dentro(const tTablero* t, int f, int c);
+int tablero_ocupado(const tTablero* t, int f, int c);
+
+void tablero_fijar_celda(tTablero* t, int f, int c, uint8_t valor);
+
+int eliminar_lineas(tTablero* t);
+
+int partida_guardar(const char* ruta, int modo_juego, const tTablero* t, const void* p, const void* punt, float velocidad, int caidas);
+int partida_cargar(const char* ruta, int* modo_juego, tTablero* t, void* p, void* punt, float* velocidad, int* caidas);
+
+#endif //tablero.h
+
+
+
+/// ////////////////////// ///
+/// ARQUITECTURA ANTERIOR ///
+
+/*
+
+#ifndef TABLERO_H
+#define TABLERO_H
+
+#include <stdint.h>
+#include "tipos.h"
+
+void borrar(uint8_t mat[FILAS][COLS], int mat_coor[]);
+
+void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[]);
+
+void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[8]);
+
 int eliminar_lineas(uint8_t mat[FILAS][COLS]);
 
-#endif // TABLERO_H
+void Reiniciar_Tablero (uint8_t mat[FILAS][COLS]);
+
+#endif*/

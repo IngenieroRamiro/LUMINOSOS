@@ -15,6 +15,7 @@ static int puntos_base_nes(int cant_lineas)
     }
 }
 
+
 static int sumar_saturado(int a, int b)
 {
     if (b > 0 && a > INT_MAX - b)

@@ -6,7 +6,6 @@
 #define MAX_RECORDS 5
 #define MAX_NOMBRE  8
 
-
 typedef struct
 {
     char nombre[MAX_NOMBRE + 1];
@@ -15,21 +14,17 @@ typedef struct
     int  nivel;
 } tRecord;
 
-
 typedef struct
 {
     tRecord lista[MAX_RECORDS];
     int     cant;
 } tRecords;
 
-
 void records_iniciar(tRecords *r);
 
 int records_cargar(tRecords *r, const char *ruta);
 
-
 int records_guardar(const tRecords *r, const char *ruta);
-
 
 int records_es_top(const tRecords *r, int puntaje);
 
