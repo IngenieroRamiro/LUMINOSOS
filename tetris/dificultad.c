@@ -38,7 +38,7 @@ void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizad
 
     if((estado == 2) && (p_caidas - ult_p_caidas) >= PIEZAS_REDUCIR) // estado = 2 -> reducir velocidad (tecla e) cada 10 piezas caídas
     {
-        *velocidad_actual = *velocidad_actual * 1.05;
+        *velocidad_actual = *velocidad_actual * 1.1;
         if(*velocidad_actual > velocidad_inicial_config)
                 *velocidad_actual = velocidad_inicial_config;
 

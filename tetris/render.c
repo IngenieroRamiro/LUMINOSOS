@@ -200,12 +200,12 @@ void dibujar_hud(const tPuntuacion *p, const tFuente *fuente, float velocidad)
 {
     char buffer[16];
 
-    const int x = 415;
+    const int x = 440;
     const int y_base = 118;
 
     int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS_NORMAL * TAM_MINO) / 2;
 
-    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 15, 95, 115, 170, 176, 127, 127);
+    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 40, 95, 115, 170, 176, 127, 127);
 
     fuente_dibujar_texto(x, y_base, "PUNTAJE", 11, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->puntaje);
