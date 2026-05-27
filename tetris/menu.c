@@ -336,7 +336,7 @@ void Pantalla_Ingresar_Nombre(tFuente *fuente, char *nombre_out)
         gbt_borrar_backbuffer(0);
         dibujar_fondo(fuente);
 
-        fuente_dibujar_texto(200, 100, "NUEVO RECORD!", 31, 2, fuente);
+        fuente_dibujar_texto(200, 115, "NUEVO RECORD!", 31, 2, fuente);
         fuente_dibujar_texto(200, 170, "INGRESA TU NOMBRE:", 11, 1, fuente);
 
 

@@ -28,6 +28,58 @@ void fuente_inicializar(tFuente *fuente)
 
     fuente->ancho['-']=8;
 
+    // Dos puntos
+
+    fuente->pixel[':'][0] = 0b00000000;
+    fuente->pixel[':'][1] = 0b01100000;
+    fuente->pixel[':'][2] = 0b01100000;
+    fuente->pixel[':'][3] = 0b00000000;
+    fuente->pixel[':'][4] = 0b00000000;
+    fuente->pixel[':'][5] = 0b01100000;
+    fuente->pixel[':'][6] = 0b01100000;
+    fuente->pixel[':'][7] = 0b00000000;
+
+    fuente->ancho[':']=4;
+
+    // Exclamación
+
+    fuente->pixel['!'][0] = 0b01000000;
+    fuente->pixel['!'][1] = 0b01000000;
+    fuente->pixel['!'][2] = 0b01000000;
+    fuente->pixel['!'][3] = 0b01000000;
+    fuente->pixel['!'][4] = 0b01000000;
+    fuente->pixel['!'][5] = 0b01000000;
+    fuente->pixel['!'][6] = 0b00000000;
+    fuente->pixel['!'][7] = 0b01000000;
+
+    fuente->ancho['!']=4;
+
+    // Punto
+
+    fuente->pixel['.'][0] = 0b00000000;
+    fuente->pixel['.'][1] = 0b00000000;
+    fuente->pixel['.'][2] = 0b00000000;
+    fuente->pixel['.'][3] = 0b00000000;
+    fuente->pixel['.'][4] = 0b00000000;
+    fuente->pixel['.'][5] = 0b00000000;
+    fuente->pixel['.'][6] = 0b01100000;
+    fuente->pixel['.'][7] = 0b01100000;
+
+    fuente->ancho['.']=4;
+
+    // Gión bajo
+
+    fuente->pixel['_'][0] = 0b00000000;
+    fuente->pixel['_'][1] = 0b00000000;
+    fuente->pixel['_'][2] = 0b00000000;
+    fuente->pixel['_'][3] = 0b00000000;
+    fuente->pixel['_'][4] = 0b00000000;
+    fuente->pixel['_'][5] = 0b00000000;
+    fuente->pixel['_'][6] = 0b01111110;
+    fuente->pixel['_'][7] = 0b00000000;
+
+    fuente->ancho['_']=4;
+
     // Número 0
 
     fuente->pixel['0'][0] = 0b00111000;
