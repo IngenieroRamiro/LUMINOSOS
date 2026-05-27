@@ -19,6 +19,7 @@
 #define VELOCIDAD_AUMENTAR 0.1f
 #define MAX_VELOCIDAD 0.7
 #define VELOCIDAD_INICIAL 1.0f
+#define PIEZAS_REDUCIR 10
 
 typedef struct {
     int paleta_color;

@@ -3,6 +3,6 @@
 
 #include "GBT/gbt.h"
 
-void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizador **reloj_caida, int pierde);
+void actualizar_velocidad(float* velocidad_actual, int p_caidas, tGBT_Temporizador **reloj_caida, int estado);
 
 #endif // DIFICULTAD_H_INCLUDED

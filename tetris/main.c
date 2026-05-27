@@ -66,7 +66,7 @@ int main()
 
     juego_corriendo = 2;
     p_caidas = 0;
-    velocidad_actual = VELOCIDAD_INICIAL;
+    velocidad_actual = config_juego.velocidad_caida;
 
     fuente_inicializar(&fuente);
     puntuacion_iniciar(&puntuacion);
@@ -106,14 +106,16 @@ int main()
 
                 puntuacion_iniciar(&puntuacion);
 
-                if (p_conf->velocidad_caida == 0)      *p_vel = 1.3f;
-                else if (p_conf->velocidad_caida == 1) *p_vel = 1.0f;
-                else                                   *p_vel = 0.6f;
+                if (p_conf->velocidad_caida == 0)
+                    *p_vel = 1.3f;
+                else if (p_conf->velocidad_caida == 1)
+                    *p_vel = 1.0f;
+                else
+                    *p_vel = 0.6f;
 
                 *p_caidas_aux = 0;
 
-                gbt_temporizador_destruir(reloj_caida);
-                reloj_caida = gbt_temporizador_crear(*p_vel);
+                actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
             }
         }
 
@@ -166,7 +168,7 @@ int main()
                         tPuntuacion punt_final = puntuacion;   // copia antes del reset
                         tablero_limpiar(&tablero);
                         puntuacion_iniciar(&puntuacion);
-                        *p_vel = VELOCIDAD_INICIAL;
+                        *p_vel = p_conf->velocidad_caida;
                         *p_caidas_aux = 0;
                         actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
                         Game_over(&fuente, p_juego, &punt_final);
@@ -187,6 +189,15 @@ int main()
                         pieza_rotar(&pieza, 0);
                 }
                 gbt_esperar(150);
+            }
+
+            if (gbt_tecla_presionada(GBTK_e))
+            {
+                if (*p_juego == 3)
+                {
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 2);
+                    gbt_esperar(150);
+                }
             }
 
             if (gbt_tecla_presionada(GBTK_q))
@@ -244,7 +255,7 @@ int main()
                     tPuntuacion punt_final = puntuacion;   // copia antes del reset
                     tablero_limpiar(&tablero);
                     puntuacion_iniciar(&puntuacion);
-                    *p_vel = VELOCIDAD_INICIAL;
+                    *p_vel = p_conf->velocidad_caida;
                     *p_caidas_aux = 0;
                     actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
                     Game_over(&fuente, p_juego, &punt_final);
@@ -278,11 +289,12 @@ int main()
                     tPuntuacion punt_final = puntuacion;   // copia antes del reset
                     tablero_limpiar(&tablero);
                     puntuacion_iniciar(&puntuacion);
-                    *p_vel = VELOCIDAD_INICIAL;
+                    *p_vel = p_conf->velocidad_caida;
                     *p_caidas_aux = 0;
                     actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
                     Game_over(&fuente, p_juego, &punt_final);
                 }
+
                 }
                 gbt_esperar(50);
             }
