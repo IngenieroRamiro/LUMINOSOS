@@ -173,12 +173,26 @@ int main()
             {
                 if (*p_juego == 3)
                 {
-                    pieza_rotar_deluxe(&tablero, &pieza);
+                    pieza_rotar_deluxe(&tablero, &pieza, 0);
                 }
                 else
                 {
-                    if (pieza_puede_rotar(&tablero, &pieza))
-                        pieza_rotar(&pieza);
+                    if (pieza_puede_rotar(&tablero, &pieza, 0))
+                        pieza_rotar(&pieza, 0);
+                }
+                gbt_esperar(150);
+            }
+
+            if (gbt_tecla_presionada(GBTK_q))
+            {
+                if (*p_juego == 3)
+                {
+                    pieza_rotar_deluxe(&tablero, &pieza, 1);
+                }
+                else
+                {
+                    if (pieza_puede_rotar(&tablero, &pieza, 1))
+                        pieza_rotar(&pieza, 1);
                 }
                 gbt_esperar(150);
             }

@@ -88,7 +88,7 @@ void pieza_mover_deluxe_horizontal(const tTablero* t, tPieza* p, int moverC)
     }
 }
 
-int pieza_puede_rotar(const tTablero* t, const tPieza* p)
+int pieza_puede_rotar(const tTablero* t, const tPieza* p, int sentido)
 {
     if (p->tipo == 5) return 0;
 
@@ -100,8 +100,17 @@ int pieza_puede_rotar(const tTablero* t, const tPieza* p)
         int moverF = (b + i)->f - pivot.f;
         int moverC = (b + i)->c - pivot.c;
 
-        int nf = pivot.f + moverC;
-        int nc = pivot.c - moverF;
+        int nf, nc;
+
+        if(sentido) // 1 = izquierda
+        {
+            nf = pivot.f - moverC;
+            nc = pivot.c + moverF;
+        }else // 0 = derecha
+        {
+            nf = pivot.f + moverC;
+            nc = pivot.c - moverF;
+        }
 
         if (tablero_ocupado(t, nf, nc))
             return 0;
@@ -109,7 +118,7 @@ int pieza_puede_rotar(const tTablero* t, const tPieza* p)
     return 1;
 }
 
-void pieza_rotar(tPieza* p)
+void pieza_rotar(tPieza* p, int sentido)
 {
     tBloque* b = p->bloques;
     tBloque pivot = *(b + 1);
@@ -119,8 +128,15 @@ void pieza_rotar(tPieza* p)
         int moverF = (b + i)->f - pivot.f;
         int moverC = (b + i)->c - pivot.c;
 
-        (b + i)->f = pivot.f + moverC;
-        (b + i)->c = pivot.c - moverF;
+        if(sentido) //1 = izquierda
+        {
+            (b + i)->f = pivot.f - moverC;
+            (b + i)->c = pivot.c + moverF;
+        }else //0 = derecha
+        {
+            (b + i)->f = pivot.f + moverC;
+            (b + i)->c = pivot.c - moverF;
+        }
     }
 }
 
@@ -140,7 +156,7 @@ int pieza_color(int figura)
     return *(colores + (figura % 6));
 }
 
-void pieza_rotar_deluxe(const tTablero* t, tPieza* p)
+void pieza_rotar_deluxe(const tTablero* t, tPieza* p, int sentido)
 {
     if (p->tipo == 5)
         return;
@@ -162,13 +178,26 @@ void pieza_rotar_deluxe(const tTablero* t, tPieza* p)
         int f_actual = (b_orig + (i / 2))->f;
         int c_actual = (b_orig + (i / 2))->c;
 
-        if (c_actual - c_pivote > col_mitad)       c_actual -= t->columnas;
-        else if (c_pivote - c_actual > col_mitad)  c_actual += t->columnas;
+        if (c_actual - c_pivote > col_mitad)
+            c_actual -= t->columnas;
+        else if (c_pivote - c_actual > col_mitad)
+            c_actual += t->columnas;
 
-        int f_nueva = f_pivote + (c_actual - c_pivote);
-        int c_nueva = c_pivote - (f_actual - f_pivote);
+        int f_nueva, c_nueva;
 
-        if (c_nueva < 0) c_nueva = (c_nueva % t->columnas) + t->columnas;
+        if (sentido) // 1 = Izquierda
+        {
+            f_nueva = f_pivote - (c_actual - c_pivote);
+            c_nueva = c_pivote + (f_actual - f_pivote);
+        }
+        else // 0 = Derecha
+        {
+            f_nueva = f_pivote + (c_actual - c_pivote);
+            c_nueva = c_pivote - (f_actual - f_pivote);
+        }
+
+        if (c_nueva < 0)
+            c_nueva = (c_nueva % t->columnas) + t->columnas;
         c_nueva %= t->columnas;
 
         *(coords_nuevas + i) = f_nueva;
