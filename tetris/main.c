@@ -85,9 +85,7 @@ int main()
         gbt_procesar_entrada();
 
         if (gbt_tecla_presionada(GBTK_ESCAPE))
-        {
-            Pausar_Juego(&fuente, p_juego);
-        }
+            Pausar_Juego(&fuente, p_juego, &tablero, &pieza, &puntuacion, *p_vel, *p_caidas_aux);
 
         if (*p_juego == 2)
         {
@@ -122,6 +120,19 @@ int main()
         if (*p_juego == 5)
         {
             Pantalla_Configuracion(&fuente, p_juego, &config_juego);
+        }
+
+        if (*p_juego == 6)
+        {
+            if (partida_cargar("savegame.dat", p_juego, &tablero, &pieza, &puntuacion, p_vel, p_caidas_aux))
+            {
+                gbt_temporizador_destruir(reloj_caida);
+                reloj_caida = gbt_temporizador_crear(*p_vel);
+            }
+            else
+            {
+                *p_juego = 2;
+            }
         }
 
         if (*p_juego == 1 || *p_juego == 3)
@@ -175,7 +186,7 @@ int main()
             if (gbt_tecla_presionada(GBTK_d))
             {
                 if (*p_juego == 3)
-                    pieza_mover_deluxe_horizontal(&tablero, &pieza, 1); // Pac-Man
+                    pieza_mover_deluxe_horizontal(&tablero, &pieza, 1);
                 else if (pieza_puede_mover(&tablero, &pieza, 0, 1))
                     pieza_mover(&pieza, 0, 1);
                 gbt_esperar(100);
@@ -184,7 +195,7 @@ int main()
             if (gbt_tecla_presionada(GBTK_a))
             {
                 if (*p_juego == 3)
-                    pieza_mover_deluxe_horizontal(&tablero, &pieza, -1); // Pac-Man
+                    pieza_mover_deluxe_horizontal(&tablero, &pieza, -1);
                 else if (pieza_puede_mover(&tablero, &pieza, 0, -1))
                     pieza_mover(&pieza, 0, -1);
                 gbt_esperar(100);
@@ -219,6 +230,39 @@ int main()
                 }
                 gbt_esperar(120);
                 continue;
+            }
+
+            if (gbt_tecla_presionada(GBTK_s))
+            {
+                if (pieza_puede_mover(&tablero, &pieza, 1, 0))
+                {
+                    pieza_mover(&pieza, 1, 0);
+
+                }
+                else
+                {
+                    pieza_fijar(&tablero, &pieza);
+                    (*p_caidas_aux)++;
+                    actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 0);
+
+                    lineas = eliminar_lineas(&tablero);
+                    if (lineas > 0)
+                        puntuacion_sumar_lineas(&puntuacion, lineas);
+
+                    figura = rand() % ((*p_juego == 3) ? PIEZAS_DELUXE : PIEZAS_NORMAL);
+                    pieza_generar(&pieza, figura);
+
+                    if (!pieza_puede_mover(&tablero, &pieza, 0, 0))
+                    {
+                        tablero_limpiar(&tablero);
+                        puntuacion_iniciar(&puntuacion);
+                        *p_vel = VELOCIDAD_INICIAL;
+                        *p_caidas_aux = 0;
+                        actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, 1);
+                        Game_over(&fuente, p_juego);
+                    }
+                }
+                gbt_esperar(50);
             }
 
             gbt_borrar_backbuffer(0);

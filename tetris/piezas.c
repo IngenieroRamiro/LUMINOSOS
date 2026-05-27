@@ -24,9 +24,8 @@ void pieza_generar(tPieza* p, int tipo)
     p->color = pieza_color(tipo);
     p->cant_bloques = (tipo >= 7) ? 5 : 4;
 
-    // Aritmética de punteros para leer la matriz y guardarla en la estructura
     const int* fila_matriz = *(FORMAS_UNIFICADAS + tipo);
-    tBloque* b = p->bloques; // Puntero al inicio del array de bloques
+    tBloque* b = p->bloques;
 
     for (int i = 0; i < p->cant_bloques; i++)
     {
@@ -197,6 +196,7 @@ void pieza_rotar_deluxe(const tTablero* t, tPieza* p)
         }
     }
 }
+
 /// ////////////////////// ///
 /// ARQUITECTURA ANTERIOR ///
 

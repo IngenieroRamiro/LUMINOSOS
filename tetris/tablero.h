@@ -24,6 +24,9 @@ void tablero_fijar_celda(tTablero* t, int f, int c, uint8_t valor);
 
 int eliminar_lineas(tTablero* t);
 
+int partida_guardar(const char* ruta, int modo_juego, const tTablero* t, const void* p, const void* punt, float velocidad, int caidas);
+int partida_cargar(const char* ruta, int* modo_juego, tTablero* t, void* p, void* punt, float* velocidad, int* caidas);
+
 #endif //tablero.h
 
 

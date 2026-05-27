@@ -3,15 +3,13 @@
 #include "menu.h"
 #include "render.h"
 #include "GBT/gbt.h"
+#include "records.h"
 
-#include "menu.h"
-#include "render.h"
-#include "GBT/gbt.h"
-
+// En menu.c -> Pantalla_Inicio
 void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
 {
     *juego = 2;
-    int seleccion = 1; // 1:Clásico, 2:Deluxe, 3:Estadísticas, 4:Configuración
+    int seleccion = 1; // 1:Clásico, 2:Deluxe, 3:Estadísticas, 4:Configuración, 5:Cargar
 
     while(*juego == 2)
     {
@@ -19,12 +17,12 @@ void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
 
         if(gbt_tecla_presionada(GBTK_w)) {
             seleccion--;
-            if(seleccion < 1) seleccion = 4;
+            if(seleccion < 1) seleccion = 5; // Cambiado a 5
             gbt_esperar(120);
         }
         if(gbt_tecla_presionada(GBTK_s)) {
             seleccion++;
-            if(seleccion > 4) seleccion = 1;
+            if(seleccion > 5) seleccion = 1; // Cambiado a 5
             gbt_esperar(120);
         }
 
@@ -33,6 +31,7 @@ void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
             if(seleccion == 2) *juego = 3; // Deluxe
             if(seleccion == 3) *juego = 4; // Récords
             if(seleccion == 4) *juego = 5; // Configuración
+            if(seleccion == 5) *juego = 6; // <-- NUEVO ESTADO: Cargar Partida
         }
 
         if(gbt_tecla_presionada(GBTK_ESCAPE)) *juego = 0;
@@ -43,9 +42,10 @@ void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
         fuente_dibujar_texto(290, 80, "menu", 31, 2, fuente);
 
         fuente_dibujar_texto(220, 140, "1 - MODO NORMAL", (seleccion == 1) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 180, "2 - MODO DELUXE", (seleccion == 2) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 220, "3 - ESTADISTICAS", (seleccion == 3) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 260, "4 - CONFIGURACION", (seleccion == 4) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(220, 175, "2 - MODO DELUXE", (seleccion == 2) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(220, 210, "3 - ESTADISTICAS", (seleccion == 3) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(220, 245, "4 - CONFIGURACION", (seleccion == 4) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(220, 280, "5 - CARGAR PARTIDA", (seleccion == 5) ? 30 : 8, 1, fuente); // Render nuevo
         fuente_dibujar_texto(220, 340, "ESC - SALIR", 8, 1, fuente);
 
         gbt_volcar_backbuffer();
@@ -53,12 +53,13 @@ void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
     }
 }
 
-void Pausar_Juego(tFuente *fuente, int *juego)
+void Pausar_Juego(tFuente *fuente, int *juego, const tTablero* t, const tPieza* p, const tPuntuacion* punt, float velocidad, int caidas)
 {
     int en_pausa = 1;
-    int seleccion = 1;
+    int seleccion = 1; // 1: CONTINUAR, 2: GUARDAR PARTIDA, 3: VOLVER AL MENU
     int color_opcion1;
     int color_opcion2;
+    int color_opcion3;
 
     int* p_sel = &seleccion;
     int* p_pausa = &en_pausa;
@@ -70,14 +71,14 @@ void Pausar_Juego(tFuente *fuente, int *juego)
         if (gbt_tecla_presionada(GBTK_w))
         {
             (*p_sel)--;
-            if (*p_sel < 1) *p_sel = 2;
+            if (*p_sel < 1) *p_sel = 3;
             gbt_esperar(120);
         }
 
         if (gbt_tecla_presionada(GBTK_s))
         {
             (*p_sel)++;
-            if (*p_sel > 2) *p_sel = 1;
+            if (*p_sel > 3) *p_sel = 1;
             gbt_esperar(120);
         }
 
@@ -89,25 +90,32 @@ void Pausar_Juego(tFuente *fuente, int *juego)
             }
             if (*p_sel == 2)
             {
+                partida_guardar("savegame.dat", *juego, t, p, punt, velocidad, caidas);
+
+                fuente_dibujar_texto(200, 340, "PARTIDA GUARDADA!", 30, 1, fuente);
+                gbt_volcar_backbuffer();
+                gbt_esperar(600);
+            }
+            if (*p_sel == 3)
+            {
                 *p_pausa = 0;
                 *juego = 2;
             }
         }
 
         if (gbt_tecla_presionada(GBTK_ESCAPE))
-        {
             *p_pausa = 0;
-            *juego = 2;       // También vuelve al menú con ESC
-        }
 
-        // Renderizado del cartel de Pausa sobre el frame actual
-        fuente_dibujar_texto(220, 180, "JUEGO EN PAUSA", 31, 2, fuente);
+        fuente_dibujar_texto(220, 150, "JUEGO EN PAUSA", 31, 2, fuente);
 
         color_opcion1 = (*p_sel == 1) ? 30 : 8;
-        fuente_dibujar_texto(240, 240, "ENTER - CONTINUAR", color_opcion1, 1, fuente);
+        fuente_dibujar_texto(240, 220, "1 - CONTINUAR", color_opcion1, 1, fuente);
 
         color_opcion2 = (*p_sel == 2) ? 30 : 8;
-        fuente_dibujar_texto(240, 280, "ESC - VOLVER AL MENU", color_opcion2, 1, fuente);
+        fuente_dibujar_texto(240, 250, "2 - GUARDAR PARTIDA", color_opcion2, 1, fuente);
+
+        color_opcion3 = (*p_sel == 3) ? 30 : 8;
+        fuente_dibujar_texto(240, 280, "3 - VOLVER AL MENU", color_opcion3, 1, fuente);
 
         gbt_volcar_backbuffer();
         gbt_esperar(16);
@@ -247,4 +255,69 @@ void Game_over(tFuente *fuente, int *juego)
     }
 }
 
+// En menu.c
+ // Asegurate de que esté este include arriba
+
+void Pantalla_Records(tFuente *fuente, int *juego)
+{
+    tRecords r;
+    char buffer[64];
+
+    // Intentamos cargar los récords desde un archivo binario
+    // Si el archivo no existe o falla, records_cargar inicializa la lista en 0
+    records_cargar(&r, "records.dat");
+
+    int mostrando = 1;
+    while (mostrando)
+    {
+        gbt_procesar_entrada();
+
+        // Si presiona ENTER o ESCAPE, volvemos al menú principal
+        if (gbt_tecla_presionada(GBTK_ENTER) || gbt_tecla_presionada(GBTK_ESCAPE))
+        {
+            mostrando = 0;
+        }
+
+        gbt_borrar_backbuffer(0);
+        dibujar_fondo(fuente);
+
+        // Título de la pantalla
+        fuente_dibujar_texto(220, 60, "TOP 5 RECORDS", 31, 2, fuente);
+
+        // Cabecera de la tabla
+        fuente_dibujar_texto(120, 130, "POS   NOMBRE   PUNTAJE   LINEAS   NIVEL", 11, 1, fuente);
+        fuente_dibujar_texto(120, 145, "---------------------------------------", 8, 1, fuente);
+
+        int y_pos = 170;
+        if (r.cant == 0)
+        {
+            fuente_dibujar_texto(200, y_pos + 30, "NO HAY RECORDS GUARDADOS", 8, 1, fuente);
+        }
+        else
+        {
+            for (int i = 0; i < r.cant; i++)
+            {
+                // Formateamos una línea por cada récord usando sprintf
+                sprintf(buffer, " %d     %-8s   %06d     %03d      %02d",
+                        i + 1,
+                        r.lista[i].nombre[0] != '\0' ? r.lista[i].nombre : "AAA",
+                        r.lista[i].puntaje,
+                        r.lista[i].lineas,
+                        r.lista[i].nivel);
+
+                // Resaltamos el primer puesto con otro color si quieren
+                int color_linea = (i == 0) ? 30 : 7;
+                fuente_dibujar_texto(120, y_pos, buffer, color_linea, 1, fuente);
+                y_pos += 25;
+            }
+        }
+
+        fuente_dibujar_texto(210, 380, "ENTER/ESC - VOLVER", 8, 1, fuente);
+
+        gbt_volcar_backbuffer();
+        gbt_esperar(16);
+    }
+
+    *juego = 2; // Al salir, seteamos el estado para que main vuelva a abrir el Menú de Inicio
+}
 
