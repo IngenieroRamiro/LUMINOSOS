@@ -20,6 +20,24 @@
 #define MAX_VELOCIDAD 0.2f
 #define PIEZAS_REDUCIR 10
 
+#define FONDO_TAB 1
+#define COLOR_FONDO_1      10
+#define COLOR_FONDO_2      11
+#define COLOR_FONDO_3      12
+#define COLOR_TEXTO        20
+#define COLOR_BLOQUE_FIJO  30
+#define COLOR_SELECCION    31
+#define COLOR_BORDE_MINO   40
+
+
+#define COLOR_PIEZA_I      50
+#define COLOR_PIEZA_J      51
+#define COLOR_PIEZA_L      52
+#define COLOR_PIEZA_O      53
+#define COLOR_PIEZA_S      54
+#define COLOR_PIEZA_Z      55
+#define COLOR_PIEZA_T      56
+
 typedef struct {
     int paleta_color;
     int resolucion_logica;

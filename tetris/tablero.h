@@ -28,28 +28,3 @@ int partida_guardar(const char* ruta, int modo_juego, const tTablero* t, const v
 int partida_cargar(const char* ruta, int* modo_juego, tTablero* t, void* p, void* punt, float* velocidad, int* caidas);
 
 #endif //tablero.h
-
-
-
-/// ////////////////////// ///
-/// ARQUITECTURA ANTERIOR ///
-
-/*
-
-#ifndef TABLERO_H
-#define TABLERO_H
-
-#include <stdint.h>
-#include "tipos.h"
-
-void borrar(uint8_t mat[FILAS][COLS], int mat_coor[]);
-
-void figuras_caen(uint8_t mat[FILAS][COLS], int mat_coor[]);
-
-void fijar_pieza(uint8_t mat[FILAS][COLS], int pieza[8]);
-
-int eliminar_lineas(uint8_t mat[FILAS][COLS]);
-
-void Reiniciar_Tablero (uint8_t mat[FILAS][COLS]);
-
-#endif*/

@@ -61,6 +61,8 @@ int main()
     config_juego.velocidad_caida = 1;
     config_juego.columnas_deluxe = COLS_NORMAL;
 
+    inicializar_paleta_gbt(config_juego.paleta_color);
+
     if (!tablero_crear(&tablero, FILAS, COLS_NORMAL))
         return 1;
 
@@ -115,6 +117,7 @@ int main()
         if (*p_juego == 5)
         {
             Pantalla_Configuracion(&fuente, p_juego, &config_juego);
+            inicializar_paleta_gbt(config_juego.paleta_color);
         }
 
         if (*p_juego == 4)

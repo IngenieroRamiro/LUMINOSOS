@@ -40,13 +40,13 @@ void Pantalla_Inicio(tFuente *fuente, int *juego, tConfiguracion* config)
         gbt_borrar_backbuffer(0);
         dibujar_fondo(fuente);
 
-        fuente_dibujar_texto(290, 100, "menu", 31, 2, fuente);
+        fuente_dibujar_texto(290, 100, "menu", FONDO_TAB, 2, fuente);
 
-        fuente_dibujar_texto(220, 140, "1 - MODO NORMAL", (seleccion == 1) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 175, "2 - MODO DELUXE", (seleccion == 2) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 210, "3 - ESTADISTICAS", (seleccion == 3) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 245, "4 - CONFIGURACION", (seleccion == 4) ? 30 : 8, 1, fuente);
-        fuente_dibujar_texto(220, 280, "5 - CARGAR PARTIDA", (seleccion == 5) ? 30 : 8, 1, fuente); // Render nuevo
+        fuente_dibujar_texto(220, 140, "1 - MODO NORMAL", (seleccion == 1) ? COLOR_SELECCION : 0, 1, fuente);
+        fuente_dibujar_texto(220, 175, "2 - MODO DELUXE", (seleccion == 2) ? COLOR_SELECCION : 0, 1, fuente);
+        fuente_dibujar_texto(220, 210, "3 - ESTADISTICAS", (seleccion == 3) ? COLOR_SELECCION : 0, 1, fuente);
+        fuente_dibujar_texto(220, 245, "4 - CONFIGURACION", (seleccion == 4) ? COLOR_SELECCION : 0, 1, fuente);
+        fuente_dibujar_texto(220, 280, "5 - CARGAR PARTIDA", (seleccion == 5) ? COLOR_SELECCION : 0, 1, fuente);
         fuente_dibujar_texto(220, 340, "ESC - SALIR", 8, 1, fuente);
 
         gbt_volcar_backbuffer();
@@ -109,13 +109,13 @@ void Pausar_Juego(tFuente *fuente, int *juego, const tTablero* t, const tPieza* 
 
         fuente_dibujar_texto(220, 150, "JUEGO EN PAUSA", 31, 2, fuente);
 
-        color_opcion1 = (*p_sel == 1) ? 30 : 8;
+        color_opcion1 = (*p_sel == 1) ? COLOR_SELECCION : 8;
         fuente_dibujar_texto(240, 220, "1 - CONTINUAR", color_opcion1, 1, fuente);
 
-        color_opcion2 = (*p_sel == 2) ? 30 : 8;
+        color_opcion2 = (*p_sel == 2) ? COLOR_SELECCION : 8;
         fuente_dibujar_texto(240, 250, "2 - GUARDAR PARTIDA", color_opcion2, 1, fuente);
 
-        color_opcion3 = (*p_sel == 3) ? 30 : 8;
+        color_opcion3 = (*p_sel == 3) ? COLOR_SELECCION : 8;
         fuente_dibujar_texto(240, 280, "3 - VOLVER AL MENU", color_opcion3, 1, fuente);
 
         gbt_volcar_backbuffer();
@@ -175,18 +175,18 @@ void Pantalla_Configuracion(tFuente *fuente, int *juego, tConfiguracion* config)
         fuente_dibujar_texto(220, 100, "configuracion", 31, 2, fuente);
 
         sprintf(buffer, "PALETA: %s", (config->paleta_color == 0) ? "CLASICA" : (config->paleta_color == 1) ? "LUMINOSA" : "NEON");
-        fuente_dibujar_texto(180, 130, buffer, (seleccion == 1) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(180, 130, buffer, (seleccion == 1) ? COLOR_SELECCION : 8, 1, fuente);
 
         sprintf(buffer, "RESOLUCION: %s", (config->resolucion_logica == 0) ? "NORMAL" : (config->resolucion_logica == 1) ? "ALTA" : "RETRO");
-        fuente_dibujar_texto(180, 170, buffer, (seleccion == 2) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(180, 170, buffer, (seleccion == 2) ? COLOR_SELECCION : 8, 1, fuente);
 
         sprintf(buffer, "VEL GRAVEDAD: %s", (config->velocidad_caida == 0) ? "LENTA" : (config->velocidad_caida == 1) ? "NORMAL" : "RAPIDA");
-        fuente_dibujar_texto(180, 210, buffer, (seleccion == 3) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(180, 210, buffer, (seleccion == 3) ? COLOR_SELECCION : 8, 1, fuente);
 
         sprintf(buffer, "ANCHO TABLERO DX: %d", config->columnas_deluxe);
-        fuente_dibujar_texto(180, 250, buffer, (seleccion == 4) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(180, 250, buffer, (seleccion == 4) ? COLOR_SELECCION : 8, 1, fuente);
 
-        fuente_dibujar_texto(180, 320, "VOLVER AL MENU", (seleccion == 5) ? 30 : 8, 1, fuente);
+        fuente_dibujar_texto(180, 320, "VOLVER AL MENU", (seleccion == 5) ? COLOR_SELECCION : 8, 1, fuente);
 
         gbt_volcar_backbuffer();
         gbt_esperar(16);
@@ -265,13 +265,13 @@ void Game_over(tFuente *fuente, int *juego, const tPuntuacion *punt)
                 *juego = 2;
             }
 
-        fuente_dibujar_texto(TAM_VENTANA_X/2 - 50, 112, "Game", 31, 3, fuente);
-        fuente_dibujar_texto(TAM_VENTANA_X/2 - 50, 154, "Over", 31, 3, fuente);
+        fuente_dibujar_texto(TAM_VENTANA_X/2 - 50, 112, "Game", COLOR_SELECCION, 3, fuente);
+        fuente_dibujar_texto(TAM_VENTANA_X/2 - 50, 154, "Over", COLOR_SELECCION, 3, fuente);
 
-        int color_opcion1 = (seleccion == 1) ? 30 : 8;
+        int color_opcion1 = (seleccion == 1) ? COLOR_SELECCION : FONDO_TAB;
         fuente_dibujar_texto(240, 240, "jugar de nuevo", color_opcion1, 1, fuente);
 
-        int color_opcion2 = (seleccion == 2) ? 30 : 8;
+        int color_opcion2 = (seleccion == 2) ? COLOR_SELECCION : FONDO_TAB;
         fuente_dibujar_texto(240, 280, "ESC - VOLVER AL MENU", color_opcion2, 1, fuente);
 
         gbt_volcar_backbuffer();
@@ -336,8 +336,8 @@ void Pantalla_Ingresar_Nombre(tFuente *fuente, char *nombre_out)
         gbt_borrar_backbuffer(0);
         dibujar_fondo(fuente);
 
-        fuente_dibujar_texto(200, 115, "NUEVO RECORD!", 31, 2, fuente);
-        fuente_dibujar_texto(200, 170, "INGRESA TU NOMBRE:", 11, 1, fuente);
+        fuente_dibujar_texto(200, 115, "NUEVO RECORD!", COLOR_TEXTO, 2, fuente);
+        fuente_dibujar_texto(200, 170, "INGRESA TU NOMBRE:", COLOR_TEXTO, 1, fuente);
 
 
         if (largo < MAX_NOMBRE)
@@ -345,11 +345,11 @@ void Pantalla_Ingresar_Nombre(tFuente *fuente, char *nombre_out)
         else
             snprintf(display, sizeof(display), "%s", buffer);
 
-        fuente_dibujar_texto(250, 220, display, 30, 2, fuente);
+        fuente_dibujar_texto(250, 220, display, COLOR_SELECCION, 2, fuente);
 
-        fuente_dibujar_texto(150, 320, "A-Z: ESCRIBIR", 8, 1, fuente);
-        fuente_dibujar_texto(150, 340, "FLECHA IZQ: BORRAR", 8, 1, fuente);
-        fuente_dibujar_texto(150, 360, "ENTER: CONFIRMAR    ESC: CANCELAR", 8, 1, fuente);
+        fuente_dibujar_texto(150, 320, "A-Z: ESCRIBIR", FONDO_TAB, 1, fuente);
+        fuente_dibujar_texto(150, 340, "FLECHA IZQ: BORRAR", FONDO_TAB, 1, fuente);
+        fuente_dibujar_texto(150, 360, "ENTER: CONFIRMAR    ESC: CANCELAR", FONDO_TAB, 1, fuente);
 
         gbt_volcar_backbuffer();
         gbt_esperar(16);
@@ -393,16 +393,16 @@ void Pantalla_Records(tFuente *fuente, int *juego)
         dibujar_fondo(fuente);
 
         // Título de la pantalla
-        fuente_dibujar_texto(220, 100, "TOP 5 RECORDS", 31, 2, fuente);
+        fuente_dibujar_texto(220, 100, "TOP 5 RECORDS", COLOR_SELECCION, 2, fuente);
 
         // Cabecera de la tabla
-        fuente_dibujar_texto(120, 130, "POS   NOMBRE   PUNTAJE   LINEAS   NIVEL", 11, 1, fuente);
-        fuente_dibujar_texto(120, 145, "---------------------------------------", 8, 1, fuente);
+        fuente_dibujar_texto(120, 130, "POS   NOMBRE   PUNTAJE   LINEAS   NIVEL", COLOR_TEXTO, 1, fuente);
+        fuente_dibujar_texto(120, 145, "---------------------------------------", COLOR_TEXTO, 1, fuente);
 
         int y_pos = 170;
         if (r.cant == 0)
         {
-            fuente_dibujar_texto(200, y_pos + 30, "NO HAY RECORDS GUARDADOS", 8, 1, fuente);
+            fuente_dibujar_texto(200, y_pos + 30, "NO HAY RECORDS GUARDADOS", COLOR_TEXTO, 1, fuente);
         }
         else
         {
@@ -417,13 +417,13 @@ void Pantalla_Records(tFuente *fuente, int *juego)
                         r.lista[i].nivel);
 
                 // Resaltamos el primer puesto con otro color si quieren
-                int color_linea = (i == 0) ? 30 : 7;
+                int color_linea = (i == 0) ? COLOR_SELECCION : FONDO_TAB;
                 fuente_dibujar_texto(120, y_pos, buffer, color_linea, 1, fuente);
                 y_pos += 25;
             }
         }
 
-        fuente_dibujar_texto(210, 380, "ENTER/ESC - VOLVER", 8, 1, fuente);
+        fuente_dibujar_texto(210, 380, "ENTER/ESC - VOLVER", FONDO_TAB, 1, fuente);
 
         gbt_volcar_backbuffer();
         gbt_esperar(16);

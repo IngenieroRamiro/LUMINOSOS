@@ -22,7 +22,7 @@ void dibujar_tablero(const tTablero* t, const tPieza* pieza)
             int px = pos_x + c * TAM_MINO;
             int py = pos_y + (f - 2) * TAM_MINO;
 
-            int borde = valor == 0 ? 8 : 7;
+            int borde = COLOR_BORDE_MINO;
 
             for (int i = 0; i < TAM_MINO; i++)
             {
@@ -30,7 +30,7 @@ void dibujar_tablero(const tTablero* t, const tPieza* pieza)
                     gbt_dibujar_pixel(px + i, py + j, borde);
             }
 
-            int centro = valor == 0 ? 0 : valor;
+            int centro = (valor == 0) ? FONDO_TAB : ((valor == 2) ? COLOR_BLOQUE_FIJO : valor);
 
             for (int i = 1; i < TAM_MINO - 1; i++)
             {
@@ -61,139 +61,18 @@ void dibujar_fondo(tFuente *fuente)
     int y = 0;
     int x = 0;
 
-
     for(int f = 0; f < 6; f++)
     {
         x = 0;
         for(int c = 0; c < 8; c++)
         {
-            dibujar_forma(x, y, 80, 80, 199, 176, 127);
+            dibujar_forma(x, y, 80, 80, COLOR_FONDO_1, COLOR_FONDO_2, COLOR_FONDO_3);
             x += 80;
         }
         y += 80;
     }
 
-    fuente_dibujar_texto(TAM_VENTANA_X/2 - 61, 70, "tetris", 11, 3, fuente);
-
-    ///Paleta de colores
-
-     /*
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 70 + j, g);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 85 + j, g+20);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 100 + j, g+40);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 115 + j, g+60);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 130 + j, g+80);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 145 + j, g+100);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 160 + j, g+120);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 175 + j, g+140);
-        }
-    }
-
-    for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 190 + j, g+160);
-        }
-    }
-
-        for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 205 + j, g+180);
-        }
-    }
-
-        for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 220 + j, g+200);
-        }
-    }
-
-        for (int g= 0; g<20; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 235 + j, g+220);
-        }
-    }
-
-        for (int g= 0; g<15; g++)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            for (int j = 0; j < 10; j++)
-                gbt_dibujar_pixel(20 + i + g*10, 250 + j, g+240);
-        }
-    }*/
+    fuente_dibujar_texto(TAM_VENTANA_X/2 - 61, 70, "tetris", COLOR_TEXTO, 3, fuente);
 }
 
 void dibujar_hud(const tPuntuacion *p, const tFuente *fuente, float velocidad)
@@ -205,21 +84,89 @@ void dibujar_hud(const tPuntuacion *p, const tFuente *fuente, float velocidad)
 
     int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS_NORMAL * TAM_MINO) / 2;
 
-    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 40, 95, 115, 170, 176, 127, 127);
+    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 40, 95, 115, 170, COLOR_FONDO_2, COLOR_FONDO_1, COLOR_FONDO_1);
 
-    fuente_dibujar_texto(x, y_base, "PUNTAJE", 11, 1, fuente);
+    fuente_dibujar_texto(x, y_base, "PUNTAJE", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->puntaje);
-    fuente_dibujar_texto(x, y_base + 12, buffer, 7, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 12, buffer, 0, 1, fuente);
 
-    fuente_dibujar_texto(x, y_base + 36, "LINEAS", 11, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 36, "LINEAS", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->lineas);
-    fuente_dibujar_texto(x, y_base + 48, buffer, 7, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 48, buffer, 0, 1, fuente);
 
-    fuente_dibujar_texto(x, y_base + 72, "NIVEL", 11, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 72, "NIVEL", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->nivel);
-    fuente_dibujar_texto(x, y_base + 84, buffer, 7, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 84, buffer, 0, 1, fuente);
 
-    fuente_dibujar_texto(x, y_base + 108, "VELOCIDAD", 11, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 108, "VELOCIDAD", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%.2fs", velocidad);
-    fuente_dibujar_texto(x, y_base + 120, buffer, 7, 1, fuente);
+    fuente_dibujar_texto(x, y_base + 120, buffer, 0, 1, fuente);
+}
+
+void inicializar_paleta_gbt(int n_paleta)
+{
+    tGBT_ColorRGB paleta[PALETA_MAX_COLORES];
+
+    for(int i = 0; i < PALETA_MAX_COLORES; i++)
+        paleta[i] = (tGBT_ColorRGB){0, 0, 0};
+
+    paleta[FONDO_TAB] = (tGBT_ColorRGB){55, 65, 85};
+
+    if (n_paleta == 0) // CLÁSICA
+    {
+        paleta[COLOR_FONDO_1]     = (tGBT_ColorRGB){60, 90, 170};
+        paleta[COLOR_FONDO_2]     = (tGBT_ColorRGB){0, 0, 120};
+        paleta[COLOR_FONDO_3]     = (tGBT_ColorRGB){120, 170, 190};
+        paleta[COLOR_TEXTO]       = (tGBT_ColorRGB){255, 255, 255};
+        paleta[COLOR_SELECCION]   = (tGBT_ColorRGB){255, 255, 255};
+        paleta[COLOR_BLOQUE_FIJO] = (tGBT_ColorRGB){150, 150, 150};
+        paleta[COLOR_BORDE_MINO]  = (tGBT_ColorRGB){70, 70, 80};
+
+        paleta[COLOR_PIEZA_I]     = (tGBT_ColorRGB){0, 230, 230};
+        paleta[COLOR_PIEZA_J]     = (tGBT_ColorRGB){0, 0, 230};
+        paleta[COLOR_PIEZA_L]     = (tGBT_ColorRGB){230, 130, 0};
+        paleta[COLOR_PIEZA_O]     = (tGBT_ColorRGB){230, 230, 0};
+        paleta[COLOR_PIEZA_S]     = (tGBT_ColorRGB){0, 230, 0};
+        paleta[COLOR_PIEZA_Z]     = (tGBT_ColorRGB){230, 0, 0};
+        paleta[COLOR_PIEZA_T]     = (tGBT_ColorRGB){150, 0, 230};
+
+    }
+    else if (n_paleta == 1) // LUMINOSA
+    {
+        paleta[COLOR_FONDO_1]     = (tGBT_ColorRGB){80, 140, 255};
+        paleta[COLOR_FONDO_2]     = (tGBT_ColorRGB){170, 110, 255};
+        paleta[COLOR_FONDO_3]     = (tGBT_ColorRGB){225, 235, 250};
+        paleta[COLOR_TEXTO]       = (tGBT_ColorRGB){255, 255, 255};
+        paleta[COLOR_SELECCION]   = (tGBT_ColorRGB){255, 180, 210};
+        paleta[COLOR_BLOQUE_FIJO] = (tGBT_ColorRGB){130, 160, 190};
+        paleta[COLOR_BORDE_MINO]  = (tGBT_ColorRGB){170, 110, 255};
+
+        paleta[COLOR_PIEZA_I]     = (tGBT_ColorRGB){150, 210, 230};
+        paleta[COLOR_PIEZA_J]     = (tGBT_ColorRGB){160, 180, 240};
+        paleta[COLOR_PIEZA_L]     = (tGBT_ColorRGB){240, 180, 150};
+        paleta[COLOR_PIEZA_O]     = (tGBT_ColorRGB){240, 220, 160};
+        paleta[COLOR_PIEZA_S]     = (tGBT_ColorRGB){160, 220, 170};
+        paleta[COLOR_PIEZA_Z]     = (tGBT_ColorRGB){230, 160, 160};
+        paleta[COLOR_PIEZA_T]     = (tGBT_ColorRGB){210, 170, 230};
+    }
+    else // NEÓN
+    {
+        paleta[COLOR_FONDO_1]     = (tGBT_ColorRGB){15, 5, 30};
+        paleta[COLOR_FONDO_2]     = (tGBT_ColorRGB){5, 2, 15};
+        paleta[COLOR_FONDO_3]     = (tGBT_ColorRGB){30, 10, 50};
+        paleta[COLOR_TEXTO]       = (tGBT_ColorRGB){0, 255, 255};
+        paleta[COLOR_SELECCION]   = (tGBT_ColorRGB){120, 255, 80};
+        paleta[COLOR_BLOQUE_FIJO] = (tGBT_ColorRGB){255, 0, 128};
+        paleta[COLOR_BORDE_MINO]  = (tGBT_ColorRGB){60, 0, 110};
+
+        paleta[COLOR_PIEZA_I]     = (tGBT_ColorRGB){0, 255, 220};
+        paleta[COLOR_PIEZA_J]     = (tGBT_ColorRGB){0, 120, 255};
+        paleta[COLOR_PIEZA_L]     = (tGBT_ColorRGB){255, 150, 0};
+        paleta[COLOR_PIEZA_O]     = (tGBT_ColorRGB){255, 255, 0};
+        paleta[COLOR_PIEZA_S]     = (tGBT_ColorRGB){50, 255, 50};
+        paleta[COLOR_PIEZA_Z]     = (tGBT_ColorRGB){255, 0, 70};
+        paleta[COLOR_PIEZA_T]     = (tGBT_ColorRGB){230, 0, 255};
+    }
+
+    gbt_aplicar_paleta(paleta, PALETA_MAX_COLORES, GBT_FORMATO_888);
 }
