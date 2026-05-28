@@ -3,6 +3,9 @@
 
 #include "tipos.h"
 
+#define PUNTOS_POR_PIEZA      5
+#define PUNTOS_POR_SOFT_DROP  1
+#define PUNTOS_POR_HARD_DROP  2
 
 typedef struct
 {

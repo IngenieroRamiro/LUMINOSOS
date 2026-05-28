@@ -149,6 +149,7 @@ int main()
                 else
                 {
                     pieza_fijar(&tablero, &pieza);
+                    puntuacion_sumar_soft_drop(&puntuacion, PUNTOS_POR_PIEZA);
                     (*p_caidas_aux)++;
                     actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 0);
 
@@ -230,10 +231,13 @@ int main()
 
             if (gbt_tecla_presionada(GBTK_ESPACIO))
             {
+                int celdas_hard = 0;
                 while (pieza_puede_mover(&tablero, &pieza, 1, 0))
                 {
                     pieza_mover(&pieza, 1, 0);
+                    celdas_hard++;
                 }
+                puntuacion_sumar_soft_drop(&puntuacion, celdas_hard * PUNTOS_POR_HARD_DROP);
 
                 pieza_fijar(&tablero, &pieza);
                 (*p_caidas_aux)++;
@@ -265,6 +269,7 @@ int main()
                 if (pieza_puede_mover(&tablero, &pieza, 1, 0))
                 {
                     pieza_mover(&pieza, 1, 0);
+                    puntuacion_sumar_soft_drop(&puntuacion, PUNTOS_POR_SOFT_DROP);
 
                 }
                 else
