@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include "GBT/gbt.h"
 
-void dibujar_tablero(const tTablero* t, const tPieza* pieza)
+void dibujar_tablero(const tTablero* t, const tPieza* pieza, const tConfiguracion* config)
 {
-    int pos_x = (TAM_VENTANA_X / 2) - (t->columnas * TAM_MINO)/2;
+    int pos_x = (config->ventana_ancho / 2) - (t->columnas * TAM_MINO)/2;
     int pos_y = 100;
 
     for (int f = 2; f < t->filas; f++)
@@ -56,7 +56,7 @@ void dibujar_forma(int x, int y, int ancho, int alto, int c1, int c2, int c3)
             gbt_dibujar_pixel(x + i, y + j, c3);
 }
 
-void dibujar_fondo(tFuente *fuente)
+void dibujar_fondo(tFuente *fuente, const tConfiguracion* config)
 {
     int y = 0;
     int x = 0;
@@ -72,35 +72,39 @@ void dibujar_fondo(tFuente *fuente)
         y += 80;
     }
 
-    fuente_dibujar_texto(TAM_VENTANA_X/2 - 61, 70, "tetris", COLOR_TEXTO, 3, fuente);
+    fuente_dibujar_texto(config->ventana_ancho/2 - 61, 70, "tetris", COLOR_TEXTO, 3, fuente);
 }
 
-void dibujar_hud(const tPuntuacion *p, const tFuente *fuente, float velocidad)
+void dibujar_hud(const tPuntuacion *p, const tFuente *fuente, float velocidad, const tConfiguracion* config)
 {
     char buffer[16];
 
-    const int x = 440;
+    int columnas_actuales = (config->columnas_deluxe > 0) ? config->columnas_deluxe : COLS_NORMAL;
+
+    int inicio_tablero = (config->ventana_ancho / 2) - (columnas_actuales * TAM_MINO) / 2;
+
+    int x_marco = inicio_tablero + (columnas_actuales * TAM_MINO) + 15;
+    int x_texto = x_marco + 15;
+
     const int y_base = 118;
 
-    int inicio_tablero = (TAM_VENTANA_X / 2) - (COLS_NORMAL * TAM_MINO) / 2;
+    dibujar_forma(x_marco, 95, 115, 170, COLOR_FONDO_2, COLOR_FONDO_1, COLOR_FONDO_1);
 
-    dibujar_forma(inicio_tablero + (COLS_NORMAL * TAM_MINO) + 40, 95, 115, 170, COLOR_FONDO_2, COLOR_FONDO_1, COLOR_FONDO_1);
-
-    fuente_dibujar_texto(x, y_base, "PUNTAJE", COLOR_FONDO_3, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base, "PUNTAJE", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->puntaje);
-    fuente_dibujar_texto(x, y_base + 12, buffer, 0, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 12, buffer, 0, 1, fuente);
 
-    fuente_dibujar_texto(x, y_base + 36, "LINEAS", COLOR_FONDO_3, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 36, "LINEAS", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->lineas);
-    fuente_dibujar_texto(x, y_base + 48, buffer, 0, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 48, buffer, 0, 1, fuente);
 
-    fuente_dibujar_texto(x, y_base + 72, "NIVEL", COLOR_FONDO_3, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 72, "NIVEL", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%d", p->nivel);
-    fuente_dibujar_texto(x, y_base + 84, buffer, 0, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 84, buffer, 0, 1, fuente);
 
-    fuente_dibujar_texto(x, y_base + 108, "VELOCIDAD", COLOR_FONDO_3, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 108, "VELOCIDAD", COLOR_FONDO_3, 1, fuente);
     snprintf(buffer, sizeof(buffer), "%.2fs", velocidad);
-    fuente_dibujar_texto(x, y_base + 120, buffer, 0, 1, fuente);
+    fuente_dibujar_texto(x_texto, y_base + 120, buffer, 0, 1, fuente);
 }
 
 void inicializar_paleta_gbt(int n_paleta)

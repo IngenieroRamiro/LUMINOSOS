@@ -43,6 +43,10 @@ typedef struct {
     int resolucion_logica;
     int velocidad_caida;
     int columnas_deluxe;
+
+    int ventana_ancho;
+    int ventana_alto;
+    int ventana_escala;
 } tConfiguracion;
 
 typedef enum {

@@ -14,7 +14,9 @@ Entrega: Sí
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #include "GBT/gbt.h"
 
@@ -27,7 +29,7 @@ Entrega: Sí
 #include "menu.h"
 #include "puntuacion.h"
 
-int main()
+int main(int argc, char* argv[])
 {
     tConfiguracion config_juego;
     tTablero tablero;
@@ -48,18 +50,46 @@ int main()
     int columnas_a_crear;
     int lineas;
 
+    config_juego.paleta_color = 0;
+    config_juego.velocidad_caida = 1;
+    config_juego.columnas_deluxe = COLS_NORMAL;
+
+    config_juego.ventana_ancho = 640;
+    config_juego.ventana_alto = 480;
+    config_juego.ventana_escala = 2;
+    config_juego.resolucion_logica = 1;
+
+    if (argc >= 2)
+    {
+        if (strcmp(argv[1], "cga") == 0 || strcmp(argv[1], "CGA") == 0)
+        {
+            config_juego.ventana_ancho = 320;
+            config_juego.ventana_alto = 200;
+            config_juego.resolucion_logica = 0; // 0: CGA
+        }
+        else if (strcmp(argv[1], "vga") == 0 || strcmp(argv[1], "VGA") == 0)
+        {
+            config_juego.ventana_ancho = 640;
+            config_juego.ventana_alto = 480;
+            config_juego.resolucion_logica = 1; // 1: VGA
+        }
+    }
+
+    if (argc >= 3)
+    {
+        int escala_consola = atoi(argv[2]);
+        if (escala_consola >= 1 && escala_consola <= 4)
+            config_juego.ventana_escala = escala_consola;
+    }
+
     if (gbt_iniciar() < 0)
         return 1;
 
-    if (gbt_crear_ventana("Tetris UNLaM - Luminosos", TAM_VENTANA_X, TAM_VENTANA_Y, 2) < 0)
+    if (gbt_crear_ventana("Tetris UNLaM - Luminosos", config_juego.ventana_ancho,
+        config_juego.ventana_alto, config_juego.ventana_escala) < 0)
         return 1;
 
     srand(time(NULL));
-
-    config_juego.paleta_color = 0;
-    config_juego.resolucion_logica = 0;
-    config_juego.velocidad_caida = 1;
-    config_juego.columnas_deluxe = COLS_NORMAL;
 
     inicializar_paleta_gbt(config_juego.paleta_color);
 
@@ -87,7 +117,7 @@ int main()
         gbt_procesar_entrada();
 
         if (gbt_tecla_presionada(GBTK_ESCAPE))
-            Pausar_Juego(&fuente, p_juego, &tablero, &pieza, &puntuacion, *p_vel, *p_caidas_aux);
+            Pausar_Juego(&fuente, p_juego, &tablero, &pieza, &puntuacion, *p_vel, *p_caidas_aux, &config_juego);
 
         if (*p_juego == 2)
         {
@@ -122,7 +152,7 @@ int main()
 
         if (*p_juego == 4)
         {
-            Pantalla_Records(&fuente, p_juego);
+            Pantalla_Records(&fuente, p_juego, &config_juego);
         }
 
         if (*p_juego == 6)
@@ -167,7 +197,7 @@ int main()
                         *p_vel = p_conf->velocidad_caida;
                         *p_caidas_aux = 0;
                         actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
-                        Game_over(&fuente, p_juego, &punt_final);
+                        Game_over(&fuente, p_juego, &punt_final, &config_juego);
                     }
                     continue;
                 }
@@ -254,7 +284,7 @@ int main()
                     *p_vel = p_conf->velocidad_caida;
                     *p_caidas_aux = 0;
                     actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
-                    Game_over(&fuente, p_juego, &punt_final);
+                    Game_over(&fuente, p_juego, &punt_final, &config_juego);
                 }
                 gbt_esperar(120);
                 continue;
@@ -288,7 +318,7 @@ int main()
                     *p_vel = p_conf->velocidad_caida;
                     *p_caidas_aux = 0;
                     actualizar_velocidad(p_vel, *p_caidas_aux, &reloj_caida, p_conf->velocidad_caida, 1);
-                    Game_over(&fuente, p_juego, &punt_final);
+                    Game_over(&fuente, p_juego, &punt_final, &config_juego);
                 }
 
                 }
@@ -296,9 +326,9 @@ int main()
             }
 
             gbt_borrar_backbuffer(0);
-            dibujar_fondo(&fuente);
-            dibujar_tablero(&tablero, &pieza);
-            dibujar_hud(&puntuacion, &fuente, *p_vel);
+            dibujar_fondo(&fuente, &config_juego);
+            dibujar_tablero(&tablero, &pieza, &config_juego);
+            dibujar_hud(&puntuacion, &fuente, *p_vel, &config_juego);
             gbt_volcar_backbuffer();
             gbt_esperar(16);
         }
