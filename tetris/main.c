@@ -5,11 +5,15 @@ DNI: 45073489
 Usuario: AlenEmG
 Entrega: Sí
 
-Apellido, Nombre: Spinetta, Luis Alberto
-DNI: 12345678
-Usuario: LuisAS21
+Apellido, Nombre: Rodriguez, Ramiro Marcelo
+DNI: 43253230
+Usuario: IngenieroRamiro
 Entrega: Sí
 
+Apellido, Nombre: Zarate, Miguel Jesus
+DNI: 45074867
+Usuario: ZarateMIG
+Entrega: Sí
 */
 
 #include <stdio.h>
